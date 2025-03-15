@@ -7,6 +7,7 @@ import staticImage from "../assets/static.jpg";
 import Image from "next/image";
 import AnimatedContent from "../components/animatedcontent";
 import FuzzyText from "../components/fuzzytext";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   const jsonData = {
