@@ -9,7 +9,7 @@ const config: Config = {
 
   theme: {
     screens: {
-      sm: "375px",
+      sm: "402px",
       md: "768px",
       lg: "1280px",
     },
@@ -26,7 +26,6 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
-        RS: ["var(--font-RS)"],
       },
     },
   },
