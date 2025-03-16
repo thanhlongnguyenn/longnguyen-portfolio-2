@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { Timeline } from "../components/timeline";
 
 export const About = () => {

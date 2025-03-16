@@ -16,7 +16,7 @@ interface DecryptedTextProps {
   parentClassName?: string;
   animateOn?: "view" | "hover" | "both";
   onLoop?: () => void; // Add the onLoop property
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default function DecryptedText({

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Rock_Salt } from "next/font/google";
+import { Inter, JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 import {twMerge} from "tailwind-merge";
 

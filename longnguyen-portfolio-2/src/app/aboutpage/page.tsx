@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "@/app/sections/Header";
-import Link from "next/link";
 import Image from "next/image";
 import AnimatedContent from "../components/animatedcontent";
 import GitHubCalendar from "react-github-calendar";
