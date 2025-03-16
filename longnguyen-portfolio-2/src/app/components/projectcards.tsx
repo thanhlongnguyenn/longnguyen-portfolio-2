@@ -11,7 +11,7 @@ import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
   IconX,
-} from "@tabler/icons-react"
+} from "@tabler/icons-react";
 import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
@@ -191,7 +191,7 @@ export const Card = ({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, handleClose]);
+  }, [open]);
 
   useOutsideClick(containerRef, () => handleClose());
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DecryptedText from "../components/decryptedtext";
 import RotatingText from "../components/rotatingtext";
 import AnimatedContent from "../components/animatedcontent";
