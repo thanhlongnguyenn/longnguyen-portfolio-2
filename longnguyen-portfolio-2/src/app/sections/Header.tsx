@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import AnimatedContent from "../components/animatedcontent";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,17 +29,19 @@ export const Header = () => {
         } hidden md:block`}
       >
         <div className="w-full px-4 md:px-16 py-4 backdrop-blur-sm flex justify-between items-center">
-          <Image src='/logo.svg' alt="Logo" width={100} height={100}/>
+          <Link href="/">
+            <Image src="/logo.svg" alt="Logo" width={100} height={100} />
+          </Link>
           <nav className="hidden md:flex gap-8">
-            <a href="#" className="nav-item">
+            <Link href="/aboutpage" className="nav-item">
               About
-            </a>
-            <a href="#" className="nav-item">
+            </Link>
+            <Link href="/" className="nav-item">
               Projects
-            </a>
-            <a href="#" className="nav-item">
+            </Link>
+            <Link href="/" className="nav-item">
               Contact
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
@@ -61,32 +64,36 @@ export const Header = () => {
             threshold={0.2}
           >
             <nav className="flex gap-1 p-1 rounded-full bg-white/20 text-[#D6D2BD]">
-              <a href="#" className="nav-item">
-                <Image src='/logo2.svg' alt="Logo" width={60} height={20}/>
-              </a>
-              <a href="#" className="nav-item">
+              <Link href="/" className="nav-item">
+                <Image src="/logo2.svg" alt="Logo" width={60} height={20} />
+              </Link>
+              <Link href="/aboutpage" className="nav-item">
                 About
-              </a>
-              <a href="#" className="nav-item">
+              </Link>
+              <Link href="/" className="nav-item">
                 Projects
-              </a>
-              <a href="#" className="nav-item">
+              </Link>
+              <Link href="/" className="nav-item">
                 Contact
-              </a>
+              </Link>
             </nav>
           </AnimatedContent>
         </div>
       </div>
-
 
       <div
         className={`fixed top-0 w-full z-50 flex justify-center items-center md:hidden transition-all duration-300 ${
           scrolled ? "opacity-0 -translate-y-full" : "opacity-100"
         }`}
       >
-        <Image src='/logo.svg' alt="Logo" width={60} height={20} className="py-4"/>
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={60}
+          height={20}
+          className="py-4"
+        />
       </div>
-
 
       <div
         className={`fixed top-3 w-full z-50 flex justify-center items-center md:hidden transition-all duration-300 ${
@@ -105,18 +112,18 @@ export const Header = () => {
             threshold={0.2}
           >
             <nav className="flex gap-1 p-1 rounded-full bg-white/20 text-[#D6D2BD]">
-              <a href="#" className="nav-item">
-                <Image src='/logo2.svg' alt="Logo" width={60} height={20}/>
-              </a>
-              <a href="#" className="nav-item">
+              <Link href="/" className="nav-item">
+                <Image src="/logo2.svg" alt="Logo" width={60} height={20} />
+              </Link>
+              <Link href="/aboutpage" className="nav-item">
                 About
-              </a>
-              <a href="#" className="nav-item">
+              </Link>
+              <Link href="/" className="nav-item">
                 Projects
-              </a>
-              <a href="#" className="nav-item">
+              </Link>
+              <Link href="/" className="nav-item">
                 Contact
-              </a>
+              </Link>
             </nav>
           </AnimatedContent>
         </div>

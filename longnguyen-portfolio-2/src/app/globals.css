@@ -183,3 +183,21 @@
 .card-container:hover {
   filter: none;
 }
+
+.github-stats {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f6f8fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.github-stats h2 {
+  margin: 0 0 15px 0;
+  color: #24292e;
+}
+
+.github-stats p {
+  font-size: 1.2em;
+  color: #586069;
+}
