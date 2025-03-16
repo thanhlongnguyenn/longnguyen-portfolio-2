@@ -1,4 +1,5 @@
 import { About } from "./sections/About";
+import { FeaturedProject } from "./sections/FeaturedProject";
 import { Header } from "./sections/Header";
 import { Hero } from "./sections/Hero";
 import { Quote } from "./sections/Quote";
@@ -13,6 +14,7 @@ export default function Home() {
       <About />
       <Quote />
       <TechStack />
+      <FeaturedProject/>
       <div className="h-dvh"></div>
     </div>
   );

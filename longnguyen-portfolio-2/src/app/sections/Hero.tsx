@@ -40,27 +40,38 @@ export const Hero = () => {
     <div className="relative pt-24 md:pt-32 lg:pt-32">
       <div className="relative z-10">
         <div className="flex flex-col items-center">
-          <RotatingText
-            texts={[
-              "Hello!",
-              "Bonjour!",
-              "Hola!",
-              "你好!",
-              "Ciao!",
-              "こんにちは!",
-              "안녕하세요!",
-              "Xin chào!",
-            ]}
-            mainClassName="text-5xl md:text-6xl lg:text-6xl font-semibold text-[#FF611D] py-10 font-sans"
-            staggerFrom={"random"}
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-120%" }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-6 sm:pb-8 md:pb-8"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={4000}
-          />
+          <AnimatedContent
+            distance={200}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 70, friction: 13 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+          >
+            <RotatingText
+              texts={[
+                "Hello!",
+                "Bonjour!",
+                "Hola!",
+                "你好!",
+                "Ciao!",
+                "こんにちは!",
+                "안녕하세요!",
+                "Xin chào!",
+              ]}
+              mainClassName="text-5xl md:text-6xl lg:text-6xl font-semibold text-[#FF611D] py-10 font-sans"
+              staggerFrom={"random"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-6 sm:pb-8 md:pb-8"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={4000}
+            />
+          </AnimatedContent>
           <AnimatedContent
             distance={200}
             direction="vertical"
@@ -120,7 +131,7 @@ export const Hero = () => {
           >
             <div className="pt-24">
               <button className="border hover:border-[#FF611D] hover:text-[#FF611D] hover:shadow-md transition duration-200 p-2 px-3 rounded-full font-semibold">
-                Let's find out more!
+                <a href="#">Let's find out more!</a>
               </button>
             </div>
           </AnimatedContent>

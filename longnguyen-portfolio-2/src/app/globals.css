@@ -175,3 +175,11 @@
     line-height: 3rem;
   }
 }
+
+.card-wrapper:hover .card-container {
+  filter: blur(5px);
+}
+
+.card-container:hover {
+  filter: none;
+}
