@@ -68,7 +68,9 @@ export const Quote = () => {
           {textParts.map((part, index) => (
             <span
               key={index}
-              ref={(el) => (textRefs.current[index] = el)}
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
               className="transition-all duration-700 "
               style={{ opacity: 0.3, color: "rgba(214, 210, 189, 0.3)" }}
             >
