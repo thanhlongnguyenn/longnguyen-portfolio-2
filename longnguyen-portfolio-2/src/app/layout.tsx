@@ -13,10 +13,6 @@ const jetBrainMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const rockSalt = Rock_Salt({
-  variable: "--font-RS",
-  weight: ["400"],
-})
 
 export const metadata: Metadata = {
   title: "Long Nguyen",
@@ -30,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.variable, jetBrainMono.variable, rockSalt.variable, "bg-[#333333] text-[#D6D2BD] font-sans antialiased")}>{children}</body>
+      <body className={twMerge(inter.variable, jetBrainMono.variable, "bg-[#333333] text-[#D6D2BD] font-sans antialiased")}>{children}</body>
     </html>
   );
 }
