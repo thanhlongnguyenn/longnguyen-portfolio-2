@@ -74,7 +74,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   });
 
   return (
-    <animated.div ref={ref} style={springProps as any}>
+    <animated.div ref={ref} style={springProps}>
       {children}
     </animated.div>
   );
