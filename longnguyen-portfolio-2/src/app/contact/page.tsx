@@ -56,6 +56,7 @@ const ContactPage = () => {
         <div className="w-full max-w-2xl px-4">
           {contactLinks.map((contact, index) => (
             <AnimatedContent
+              key={index}
               distance={200}
               direction="horizontal"
               reverse={true}
@@ -66,7 +67,6 @@ const ContactPage = () => {
               threshold={0.2}
             >
               <a
-                key={index}
                 href={contact.link}
                 target="_blank"
                 rel="noopener noreferrer"
