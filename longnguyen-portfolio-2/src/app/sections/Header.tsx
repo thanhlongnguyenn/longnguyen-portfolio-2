@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import AnimatedContent from "../components/animatedcontent";
 import Image from "next/image";
 import Link from "next/link";
 
