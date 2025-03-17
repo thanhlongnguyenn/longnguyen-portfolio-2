@@ -4,7 +4,7 @@ import React from "react";
 import DecryptedText from "../components/decryptedtext";
 import RotatingText from "../components/rotatingtext";
 import AnimatedContent from "../components/animatedcontent";
-
+import Squares from "../components/squares";
 
 export const Hero = () => {
   const jsonData = {
@@ -34,7 +34,17 @@ export const Hero = () => {
     );
 
   return (
-    <div className="relative pt-24 md:pt-32 lg:pt-32">
+    <div className="relative pt-24 md:pt-32 lg:pt-32 min-h-dvh">
+      {/* Squares component as background */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <Squares
+          speed={0.5}
+          squareSize={40}
+          direction="diagonal" // up, down, left, right, diagonal
+          borderColor="#fff"
+          hoverFillColor="#222"
+        />
+      </div>
       <div className="relative z-10">
         <div className="flex flex-col items-center">
           <AnimatedContent
@@ -126,7 +136,7 @@ export const Hero = () => {
             threshold={0.2}
             delay={1800}
           >
-            <div className="pt-24">
+            <div className="pt-48">
               <button className="border hover:border-[#FF611D] hover:text-[#FF611D] hover:shadow-md transition duration-200 p-2 px-3 rounded-full font-semibold">
                 <a href="#">Let's find out more!</a>
               </button>
@@ -134,6 +144,8 @@ export const Hero = () => {
           </AnimatedContent>
         </div>
       </div>
+      {/* Blur effect at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#333333] blur-lg"></div>
     </div>
   );
 };

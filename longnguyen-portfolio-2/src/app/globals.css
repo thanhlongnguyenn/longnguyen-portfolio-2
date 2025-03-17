@@ -201,3 +201,10 @@
   font-size: 1.2em;
   color: #586069;
 }
+
+.squares-canvas {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}

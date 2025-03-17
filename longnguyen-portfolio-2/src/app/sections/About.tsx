@@ -72,7 +72,7 @@ export const About = () => {
   ];
   return (
     <div id="about">
-      <div className="flex flex-col items-center justify-center pt-28 lg:pt-34">
+      <div className="flex flex-col items-center justify-center pt-24 lg:pt-34">
         <h1 className="font-bold text-[30px]">ABOUT ME</h1>
         <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
           CODE.EAT.SLEEP.REPEAT
