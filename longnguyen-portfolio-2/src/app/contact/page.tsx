@@ -1,6 +1,7 @@
 import { Header } from "../sections/Header";
 import RotatingText from "../components/rotatingtext";
-import { ArrowUpRight } from "lucide-react"; // Import the arrow icon
+import { ArrowUpRight } from "lucide-react";
+import AnimatedContent from "../components/animatedcontent";
 
 const ContactPage = () => {
   // Contact links data
@@ -51,27 +52,42 @@ const ContactPage = () => {
         </h2>
 
         {/* Contact Links Menu */}
+
         <div className="w-full max-w-2xl px-4">
           {contactLinks.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block border-b border-gray-200 py-6 transition-all duration-300"
+            <AnimatedContent
+              distance={200}
+              direction="horizontal"
+              reverse={true}
+              config={{ tension: 70, friction: 13 }}
+              initialOpacity={0}
+              animateOpacity
+              scale={1.1}
+              threshold={0.2}
             >
-              <div className="flex justify-between items-center">
-                <div>
-                  <h3 className="text-xl font-semibold">{contact.name}</h3>
-                  <p className="text-[#D6D2BD]/70 font-mono mt-1">{contact.description}</p>
+              <a
+                key={index}
+                href={contact.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border-b border-gray-200 py-6 transition-all duration-300"
+              >
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="text-xl font-semibold">{contact.name}</h3>
+                    <p className="text-[#D6D2BD]/70 font-mono mt-1">
+                      {contact.description}
+                    </p>
+                  </div>
+                  <div className="text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
+                    <ArrowUpRight size={40} />
+                  </div>
                 </div>
-                <div className="text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-                  <ArrowUpRight size={40} />
-                </div>
-              </div>
-            </a>
+              </a>
+            </AnimatedContent>
           ))}
         </div>
+
       </div>
     </div>
   );

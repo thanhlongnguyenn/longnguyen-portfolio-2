@@ -7,8 +7,8 @@ import GitHubCalendar from "react-github-calendar";
 const AboutPage = () => {
   return (
     <div>
-      <div className="relative font-mono">
         <Header />
+      <div className="relative font-mono">
 
         <div className="container mx-auto px-10 md:px-16 lg:px-0 pt-28 lg:pt-40">
           <AnimatedContent
