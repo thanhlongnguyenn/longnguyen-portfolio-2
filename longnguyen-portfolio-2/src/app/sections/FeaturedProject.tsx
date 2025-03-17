@@ -60,7 +60,7 @@ const HMUContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
-        Seamless web-to-PDF automation. HMU_2PDF is a powerful Python-based tool
+        Seamless web-to-PDF automation. HMU_2PDF is a powerful Python-based web crawler
         that efficiently extracts and converts web content into structured
         PDFs—simplifying document management with precision and speed.
       </p>
@@ -78,9 +78,9 @@ const RAGContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
-        Reimagining medical supply management. Our team built a seamless,
-        virtual warehouse system for a local charity, making donation tracking
-        smarter and more efficient.{" "}
+        Smarter conversations, built for real impact. During my internship, I’m
+        developing a RAG-powered chatbot that combines retrieval and generative
+        AI to deliver more accurate, context-aware responses.
       </p>
       <Image
         src="https://i.imgur.com/xzMbpOz.png"
@@ -97,26 +97,26 @@ const data = [
   {
     category: "WEB DEVELOPMENT",
     title: "Medical Pantry",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.imgur.com/D07T3Rb.png",
     content: <MedPantryContent />,
   },
   {
     category: "MACHINE LEARNING",
     title: "Book popularity prediction",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.imgur.com/W65E8dV.jpg",
     content: <EODPContent />,
   },
   {
     category: "AUTOMATION",
     title: "HMU_2PDF",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.imgur.com/jnAOo3r.jpg",
     content: <HMUContent />,
   },
 
   {
     category: "ARTIFICIAL INTELLIGENCE",
     title: "RAG-AI Personal Assistant",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.imgur.com/VKZItnY.jpg",
     content: <RAGContent />,
   },
 ];

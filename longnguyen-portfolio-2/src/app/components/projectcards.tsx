@@ -16,7 +16,6 @@ import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
 
-
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
@@ -201,7 +200,7 @@ export const Card = ({
 
   const handleClose = () => {
     setOpen(false);
-    onCardClose(index);
+    // onCardClose(index);
   };
 
   return (
