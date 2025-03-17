@@ -8,12 +8,19 @@ export const About = () => {
       content: (
         <div>
           <p className="text-sm font-medium md:text-md font-mono mb-8">
-            💼 Landed my first internship as a Software Developer at FPT
-            Australasia!
+            Decided to make 2025 my year to shine
           </p>
-          <p className="text-sm font-medium md:text-md font-mono mb-8">
-            🎓 Expecting my graduation soon!
-          </p>
+          <div className="mb-8 font-medium">
+            <div className="flex items-center text-sm md:text-md font-mono">
+              Latest update:
+            </div>
+            <div className="flex items-center text-sm md:text-md font-mono">
+              💼 Landed an internship as a Software Developer @ FPT Australasia
+            </div>
+            <div className="flex items-center text-sm md:text-md font-mono">
+              🎓 Expecting my graduation soon!
+            </div>
+          </div>
         </div>
       ),
     },
@@ -25,23 +32,23 @@ export const About = () => {
             Dove deep into my Computing and Software Systems degree at UniMelb
           </p>
           <div className="mb-8 font-medium">
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               My key takeaways:
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               🔐 Learned that released datasets usually have some noise to
               protect privacy through COMP20008
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               🧮 Refined my data structures and algorithms through COMP20003 and
               Leetcode questions
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               ⚖️ Balanced my academic responsibilities with other life
               commitments
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono pt-2">
-            ... and many more!
+            <div className="flex items-center text-sm md:text-md font-mono pt-2">
+              ... and many more!
             </div>
           </div>
         </div>
@@ -55,13 +62,13 @@ export const About = () => {
             Started my adulthood at The University of Melbourne
           </p>
           <div className="mb-8 font-medium">
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               At a glance:
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               👨🏻‍💻 Wrote my first line of code in Python and C
             </div>
-            <div className="flex gap-2 items-center text-sm md:text-md font-mono">
+            <div className="flex items-center text-sm md:text-md font-mono">
               🍕 Somehow know how to make 150+ pizza doughs in 1 hour (Thanks,
               Dominos)
             </div>

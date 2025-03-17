@@ -86,13 +86,15 @@ export const Header = () => {
           scrolled ? "opacity-0 -translate-y-full" : "opacity-100"
         }`}
       >
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          width={60}
-          height={20}
-          className="py-4"
-        />
+        <Link href="/" className="z-50">
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={60}
+            height={20}
+            className="py-4"
+          />
+        </Link>
       </div>
 
       <div
@@ -112,7 +114,7 @@ export const Header = () => {
             threshold={0.2}
           >
             <nav className="flex gap-1 p-1 rounded-full bg-white/20 text-[#D6D2BD]">
-              <Link href="/" className="nav-item">
+              <Link href="/" className="nav-item z-50">
                 <Image src="/logo2.svg" alt="Logo" width={60} height={20} />
               </Link>
               <Link href="/about" className="nav-item">
