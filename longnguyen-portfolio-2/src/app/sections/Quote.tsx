@@ -8,9 +8,9 @@ export const Quote = () => {
 
   // Split the text into parts that will be highlighted separately
   const textParts = [
-    "If I have the belief that I can do it, ",
+    "\"If I have the belief that I can do it, ",
     "I shall surely acquire the capacity to do it ",
-    "even if I may not have it at the beginning.",
+    "even if I may not have it at the beginning.\"",
   ];
 
   useEffect(() => {
@@ -62,16 +62,16 @@ export const Quote = () => {
       {/* Tall container to allow scrolling */}
       <div
         ref={containerRef}
-        className="h-screen flex items-center justify-center bg-[#1a1a1a] font-medium text-3xl md:text-4xl p-4 sticky top-0"
+        className="h-screen flex items-center bg-[#1a1a1a] font-medium text-3xl md:text-4xl p-4 sticky top-0"
       >
-        <div className="max-w-3xl">
+        <div className="w-full px-4 md:px-13 lg:max-w-4xl lg:mx-auto lg:text-center">
           {textParts.map((part, index) => (
             <span
               key={index}
               ref={(el) => {
                 textRefs.current[index] = el;
               }}
-              className="transition-all duration-700 "
+              className="transition-all duration-700"
               style={{ opacity: 0.3, color: "rgba(214, 210, 189, 0.3)" }}
             >
               {part}

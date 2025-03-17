@@ -11,11 +11,13 @@ export function FeaturedProject() {
   ));
 
   return (
-    <div className="flex flex-col items-center justify-center pt-28 lg:pt-34">
-      <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
-      <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
-        EXPLORE MY WORK
-      </h2>
+    <div>
+      <div className="flex flex-col items-start lg:items-center justify-center pt-24 lg:pt-34 px-8 md:px-18 lg:px-0">
+        <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
+        <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
+          EXPLORE MY WORK
+        </h2>
+      </div>
       <Carousel items={cards} />
     </div>
   );
@@ -37,7 +39,7 @@ const MedPantryContent = () => {
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
       <div className="flex justify-end mt-4">
-        <Link href={"/medpantry"}>
+        <Link href={"/my-projects/medpantry"}>
           <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
             Learn more
             <span className="ml-2">
@@ -66,7 +68,7 @@ const EODPContent = () => {
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
       <div className="flex justify-end mt-4">
-        <Link href={"/eodp"}>
+        <Link href={"/my-projects/eodp"}>
           <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
             Learn more
             <span className="ml-2">
@@ -95,7 +97,7 @@ const HMUContent = () => {
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
       <div className="flex justify-end mt-4">
-        <Link href={"/hmu"}>
+        <Link href={"/my-projects/hmu"}>
           <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
             Learn more
             <span className="ml-2">
