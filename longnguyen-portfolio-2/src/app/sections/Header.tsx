@@ -33,13 +33,13 @@ export const Header = () => {
             <Image src="/logo.svg" alt="Logo" width={100} height={100} />
           </Link>
           <nav className="hidden md:flex gap-8">
-            <Link href="/aboutpage" className="nav-item">
+            <Link href="/about" className="nav-item">
               About
             </Link>
-            <Link href="/" className="nav-item">
+            <Link href="/projectpage" className="nav-item">
               Projects
             </Link>
-            <Link href="/" className="nav-item">
+            <Link href="/contact" className="nav-item">
               Contact
             </Link>
           </nav>
@@ -67,13 +67,13 @@ export const Header = () => {
               <Link href="/" className="nav-item">
                 <Image src="/logo2.svg" alt="Logo" width={60} height={20} />
               </Link>
-              <Link href="/aboutpage" className="nav-item">
+              <Link href="/about" className="nav-item">
                 About
               </Link>
-              <Link href="/" className="nav-item">
+              <Link href="/projectpage" className="nav-item">
                 Projects
               </Link>
-              <Link href="/" className="nav-item">
+              <Link href="/contact" className="nav-item">
                 Contact
               </Link>
             </nav>
@@ -115,13 +115,13 @@ export const Header = () => {
               <Link href="/" className="nav-item">
                 <Image src="/logo2.svg" alt="Logo" width={60} height={20} />
               </Link>
-              <Link href="/aboutpage" className="nav-item">
+              <Link href="/about" className="nav-item">
                 About
               </Link>
-              <Link href="/" className="nav-item">
+              <Link href="/projectpage" className="nav-item">
                 Projects
               </Link>
-              <Link href="/" className="nav-item">
+              <Link href="/contact" className="nav-item">
                 Contact
               </Link>
             </nav>
