@@ -1,11 +1,11 @@
 import React from "react";
 
-const HMU = () => {
+const eodp = () => {
   return (
     <div>
-      <h1>HMU</h1>
+        <h1>EODP</h1>
     </div>
   );
 };
 
-export default HMU;
+export default eodp;

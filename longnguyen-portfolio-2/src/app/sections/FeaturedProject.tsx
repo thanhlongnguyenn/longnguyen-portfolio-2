@@ -2,6 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "../components/projectcards";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export function FeaturedProject() {
   const cards = data.map((card, index) => (
@@ -34,6 +36,16 @@ const MedPantryContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
+      <div className="flex justify-end mt-4">
+        <Link href={"/medpantry"}>
+          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
+            Learn more
+            <span className="ml-2">
+              <ArrowUpRight size={25} />
+            </span>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
@@ -53,6 +65,16 @@ const EODPContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
+      <div className="flex justify-end mt-4">
+        <Link href={"/eodp"}>
+          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
+            Learn more
+            <span className="ml-2">
+              <ArrowUpRight size={25} />
+            </span>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
@@ -60,9 +82,10 @@ const HMUContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
-        Seamless web-to-PDF automation. HMU_2PDF is a powerful Python-based web crawler
-        that efficiently extracts and converts web content into structured
-        PDFs—simplifying document management with precision and speed.
+        Seamless web-to-PDF automation. HMU_2PDF is a powerful Python-based web
+        crawler that efficiently extracts and converts web content into
+        structured PDFs—simplifying document management with precision and
+        speed.
       </p>
       <Image
         src="https://i.imgur.com/xzMbpOz.png"
@@ -71,6 +94,16 @@ const HMUContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
+      <div className="flex justify-end mt-4">
+        <Link href={"/hmu"}>
+          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
+            Learn more
+            <span className="ml-2">
+              <ArrowUpRight size={25} />
+            </span>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
