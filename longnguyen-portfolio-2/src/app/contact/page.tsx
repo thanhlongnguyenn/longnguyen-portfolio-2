@@ -17,9 +17,25 @@ const ContactPage = () => {
       description: "Check out my code repositories",
     },
     {
-      name: "Instagram",
-      link: "https://instagram.com/yourusername",
-      description: "Follow my creative journey",
+      name: "Email",
+      link: "mailto:tln.thanhlongnguyen@gmail.com?subject=Hello%20Long!%20I%20am%20a%20visitor%20from%20your%20portfolio",
+      description: "Let's talk business",
+    },
+  ];
+
+  // Social media share links
+  const shareLinks = [
+    {
+      name: "Facebook",
+      link: "https://www.facebook.com/sharer/sharer.php?u=https://thanhlongnguyen.vercel.app/",
+    },
+    {
+      name: "Twitter",
+      link: "https://twitter.com/intent/tweet?url=https://thanhlongnguyen.vercel.app/&text=Check%20out%20this%20amazing%20portfolio!",
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/shareArticle?mini=true&url=https://thanhlongnguyen.vercel.app/&title=Check%20out%20this%20amazing%20portfolio!",
     },
   ];
 
@@ -52,8 +68,7 @@ const ContactPage = () => {
         </h2>
 
         {/* Contact Links Menu */}
-
-        <div className="w-full max-w-2xl px-4">
+                <div className="w-full max-w-2xl px-4">
           {contactLinks.map((contact, index) => (
             <AnimatedContent
               key={index}
@@ -72,10 +87,12 @@ const ContactPage = () => {
                 rel="noopener noreferrer"
                 className="group block border-b border-gray-200 py-6 transition-all duration-300"
               >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center transition-colors duration-300">
                   <div>
-                    <h3 className="text-xl font-semibold">{contact.name}</h3>
-                    <p className="text-[#D6D2BD]/70 font-mono mt-1">
+                    <h3 className="text-xl font-semibold group-hover:text-[#FF611D] transition-colors duration-300">
+                      {contact.name}
+                    </h3>
+                    <p className="text-[#D6D2BD]/70 font-mono mt-1 group-hover:text-[#FF611D] transition-colors duration-300">
                       {contact.description}
                     </p>
                   </div>
@@ -87,7 +104,29 @@ const ContactPage = () => {
             </AnimatedContent>
           ))}
         </div>
-
+        
+        {/* Spread the Word Section */}
+        <div className="w-full max-w-2xl px-4 mt-20 flex flex-col items-center justify-center">
+          <h1 className="font-bold text-[30px]">SPREAD THE WORD!</h1>
+          <h2 className="font-semibold text-lg font-mono text-[#FF611D] flex items-center mb-12">
+            INTERESTED? SHARE MY PORTFOLIO!
+          </h2>
+          <div className="flex flex-row space-x-4">
+            {shareLinks.map((share, index) => (
+              <a
+                key={index}
+                href={share.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-[#FF611D] hover:text-[#D6D2BD] font-mono transition-colors duration-300"
+              >
+                <div className="group-hover:bg-gray-100 p-2 rounded transition-colors duration-300">
+                  {share.name}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="h-dvh"></div>
     </div>

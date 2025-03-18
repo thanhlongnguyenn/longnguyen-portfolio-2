@@ -2,68 +2,121 @@
 import React from "react";
 import { Header } from "../../sections/Header";
 import Image from "next/image";
-// import ScrollVelocity from "@/app/components/scrollvelocity";
+import ScrollVelocity from "@/app/components/scrollvelocity";
 import { StickyScroll } from "../../components/sticky-scroll-reveal";
 
 export default function MedPantry() {
   const content = [
     {
-      title: "WHY DID I CHOOSE THIS FRAMEWORK PROJECT?",
-      description:
-        "As a software engineering student with a keen interest in data science and social impact, the Medical Pantry project presented a unique opportunity to apply my technical skills to a meaningful cause. The project's combination of data analysis, machine learning, and real-world application in healthcare logistics perfectly aligned with my academic interests and career aspirations. Additionally, the chance to work with an Australian charity and contribute to improving healthcare accessibility in underserved communities made this project particularly appealing.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white rounded-lg">
-          Project Motivation Visual
+      title: "WHAT IS THIS PROJECT ABOUT?",
+      description: (
+        <div>
+          <p className="mb-4">
+            The Medical Pantry is an Australian charity organization that serves
+            as a bridge between surplus medical supplies and communities in
+            need. Their warehouse operates as a central hub, collecting and
+            sorting unused medical equipment from various healthcare facilities.
+            Here is the links to the{" "}
+            <a
+              href="https://medicalpantry.org/"
+              className="text-orange underline"
+            >
+              Medical Pantry website
+            </a>{" "}
+            and their{" "}
+            <a
+              href="https://shop.medicalpantry.org/"
+              className="text-orange underline"
+            >
+              Shopify store
+            </a>
+            .
+          </p>
+          <p className="mb-4">
+            Medical Pantry needed an efficient solution for its stock management
+            process, starting from sorting donated medical supplies. The
+            existing manual labour system created bottlenecks, making it
+            difficult to track available storage and efficiently allocate
+            resources. To address this challenge, my team and I developed a
+            virtual warehouse system that allows for precise tracking and entry
+            of stock, streamlining the entire inventory process.
+          </p>
         </div>
       ),
     },
     {
-      title: "WHAT IS THIS PROJECT ABOUT",
-      description:
-        "The Medical Pantry is an Australian charity organization that serves as a bridge between surplus medical supplies and communities in need. Their warehouse operates as a central hub, collecting and sorting unused medical equipment from various healthcare facilities. Through an integrated Shopify e-commerce platform, they efficiently distribute these resources to underserved areas. My role involved developing a data-driven inventory management system and implementing machine learning algorithms to optimize the distribution process, ensuring medical supplies reach those who need them most effectively.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white rounded-lg">
-          Project Overview Visual
+      title: "MEET THE TEAM",
+      description: (
+        <div>
+          <p className="mb-4">
+            Our team was composed of skilled individuals who collaborated to
+            bring this project to life. I was responsible for UI/UX design and
+            frontend development, ensuring an intuitive user experience. Kai
+            took on the role of product owner and backend developer, guiding the
+            project's direction. Henry led API development and database
+            integration, while Abdullah focused on quality assurance and
+            deployment. Sho contributed to frontend development and product
+            documentation. Together, we worked efficiently, combining our
+            expertise to create a robust and effective solution for Medical
+            Pantry.
+          </p>
         </div>
       ),
     },
     {
-      title: "THE WORK PROCESS",
-      description:
-        "The development process followed an agile methodology, broken down into several key phases. Initially, I conducted extensive data cleaning and analysis of the existing inventory database. This was followed by the implementation of machine learning models to predict demand patterns and optimize stock levels. The process involved regular collaboration with the Medical Pantry team, iterative testing, and continuous refinement of the algorithms based on real-world feedback. Python served as the primary programming language, utilizing libraries such as pandas for data manipulation, scikit-learn for machine learning, and matplotlib for data visualization.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white rounded-lg">
-          Work Process Visual
+      title: "THE MANUAL SORTING PROCESS AND ITS PROBLEM",
+      description: (
+        <div>
+          <p className="mb-4">
+            The organisation relied on a structured packing process where
+            donated medical supplies are sorted into "Baxter Boxes" before being
+            distributed.{" "}
+            <span className="font-bold text-orange">
+              However, without a proper tracking system, managers had to
+              manually identify available storage and update SKU fields in
+              Shopify to reflect item locations.
+            </span>{" "}
+            Volunteers depended on direct instructions from managers, making the
+            process inefficient and error-prone. Our goal was to automate these
+            steps to enhance workflow and reduce reliance on manual updates.
+          </p>
         </div>
       ),
     },
     {
-      title: "THE PROBLEM IDENTIFIED",
-      description:
-        "Through initial analysis, several critical challenges were identified in the Medical Pantry's operations. The main issues included inefficient inventory tracking, difficulty in predicting demand patterns, and suboptimal distribution routes. The manual nature of many processes led to delays and occasional mismatches between supply and demand. Additionally, the lack of data-driven decision-making tools made it challenging to effectively manage the growing scale of operations and ensure timely delivery of medical supplies to communities in need.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white rounded-lg">
-          Problem Analysis Visual
-        </div>
-      ),
-    },
-    {
-      title: "WHAT WE HAVE ACHIEVED?",
-      description:
-        "The implementation of our solutions led to significant improvements in Medical Pantry's operations. We achieved a 40% reduction in inventory management time through automated tracking systems. The machine learning models successfully predicted demand patterns with 85% accuracy, leading to better stock level management. The optimization of distribution routes resulted in a 25% reduction in delivery times. These improvements have enabled Medical Pantry to serve more communities effectively and handle a larger volume of medical supplies with greater efficiency.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white rounded-lg">
-          Achievements Visual
+      title: "OUR SOLUTION",
+      description: (
+        <div>
+          <p>
+            The implementation of our solutions led to significant improvements
+            in Medical Pantry's operations. We achieved a 40% reduction in
+            inventory management time through automated tracking systems. The
+            machine learning models successfully predicted demand patterns with
+            85% accuracy, leading to better stock level management. The
+            optimization of distribution routes resulted in a 25% reduction in
+            delivery times. These improvements have enabled Medical Pantry to
+            serve more communities effectively and handle a larger volume of
+            medical supplies with greater efficiency.
+          </p>
         </div>
       ),
     },
     {
       title: "WHAT DID I LEARN FROM THIS PROJECT?",
-      description:
-        "This project provided invaluable learning experiences across multiple dimensions. Technically, I deepened my understanding of machine learning applications in real-world scenarios and improved my skills in data analysis and Python programming. The project enhanced my ability to work with large datasets and implement practical solutions. On a professional level, I gained experience in project management, stakeholder communication, and working within an agile framework. Perhaps most importantly, I learned how technology can be leveraged to create meaningful social impact in healthcare accessibility.",
-      content: (
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white rounded-lg">
-          Learning Outcomes Visual
+      description: (
+        <div>
+          <p>
+            This project provided invaluable learning experiences across
+            multiple dimensions. Technically, I deepened my understanding of
+            machine learning applications in real-world scenarios and improved
+            my skills in data analysis and Python programming. The project
+            enhanced my ability to work with large datasets and implement
+            practical solutions. On a professional level, I gained experience in
+            project management, stakeholder communication, and working within an
+            agile framework. Perhaps most importantly, I learned how technology
+            can be leveraged to create meaningful social impact in healthcare
+            accessibility.
+          </p>
         </div>
       ),
     },
@@ -87,10 +140,10 @@ export default function MedPantry() {
       </div>
 
       {/* Main Content - Added max-width container */}
-      <div className="w-full px-5 md:px-15.5 py-12">
-        <div className="max-w-[980px] mx-auto">
+      <div className="w-full px-5 md:px-15.5 py-12 h-full">
+        <div className="max-w-[1000px] mx-auto">
           {" "}
-          {/* Added centered max-width container */}
+          {/* Increased max-width to 1280px */}
           <h1 className="font-sans font-semibold text-[43.46px] mb-6">
             MEDICAL PANTRY
           </h1>
@@ -99,23 +152,23 @@ export default function MedPantry() {
             charity, optimizing the distribution of medical supplies to
             underserved communities.
           </p>
-          {/* ScrollVelocity Section */}
-          {/* <div className="h-16 overflow-hidden mb-10">
+          <div className="h-16 overflow-hidden mb-10">
             <ScrollVelocity
               texts={[
-                "Python • Machine Learning • Data Cleaning • Data Visualisation • Data Analysis • <pandas> • <scikit-learn> • <matplotlib> • <seaborn> • <numpy> •",
+                "React • TailwindCSS • Vercel • UI/UX • Git • AGILE • Figma • ",
               ]}
               velocity={20}
               className="font-mono text-[18.07px] text-orange"
               numCopies={4}
-              velocityMapping={{ input: [0, 1000], output: [-2, 2] }}
+              velocityMapping={{ input: [0, 1000], output: [2, 2] }}
               parallaxClassName="h-16"
               scrollerClassName="items-center"
             />
-          </div> */}
+          </div>
           <StickyScroll content={content} />
         </div>
       </div>
+      <div className="h-dvh"></div> {/* Added extra space at the bottom */}
     </div>
   );
 }

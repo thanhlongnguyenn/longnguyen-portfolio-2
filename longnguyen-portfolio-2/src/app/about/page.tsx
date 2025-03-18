@@ -7,10 +7,9 @@ import GitHubCalendar from "react-github-calendar";
 const AboutPage = () => {
   return (
     <div>
-        <Header />
+      <Header />
       <div className="relative font-mono">
-
-        <div className="container mx-auto px-10 md:px-16 lg:px-0 pt-28 lg:pt-40">
+        <div className="container mx-auto px-10 md:px-15 lg:px-12 pt-28 lg:pt-40">
           <AnimatedContent
             distance={10}
             direction="vertical"
@@ -142,10 +141,17 @@ const AboutPage = () => {
           My GitHub contributions
         </div>
         <div className="flex justify-center">
-          <GitHubCalendar username="thanhlongnguyenn" />
+          <GitHubCalendar
+            username="thanhlongnguyenn"
+            theme={{
+              dark: ["#333333", "#FF611D"],
+            }}
+            style={{
+              font: "14px JetBrains Mono",
+            }}
+          />
         </div>
       </div>
-      <div className="h-dvh"></div>
     </div>
   );
 };

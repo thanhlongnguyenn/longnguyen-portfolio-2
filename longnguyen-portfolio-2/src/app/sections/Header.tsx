@@ -16,9 +16,6 @@ export const Header = () => {
       }
     };
 
-    // Check scroll position immediately on mount
-    handleScroll();
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

@@ -10,8 +10,8 @@ export const StickyScroll = ({
 }: {
   content: {
     title: string;
-    description: string;
-    content?: React.ReactNode | any;
+    description: React.ReactNode;
+    content?: React.ReactNode;
   }[];
   contentClassName?: string;
 }) => {
@@ -19,70 +19,84 @@ export const StickyScroll = ({
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.1", "end end"],
+    offset: ["start start", "end start"],
   });
   const cardLength = content.length;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const cardsBreakpoints = content.map(
-        (_, index) => index / (cardLength - 1)
-      );
-      const closestBreakpointIndex = cardsBreakpoints.reduce(
-        (acc, breakpoint, index) => {
-          const distance = Math.abs(scrollYProgress.get() - breakpoint);
-          if (distance < Math.abs(scrollYProgress.get() - cardsBreakpoints[acc])) {
-            return index;
-          }
-          return acc;
-        },
-        0
-      );
-      setActiveCard(closestBreakpointIndex);
-    };
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const cardsBreakpoints = content.map((_, index) => index / cardLength);
+    const closestBreakpointIndex = cardsBreakpoints.reduce(
+      (acc, breakpoint, index) => {
+        const distance = Math.abs(latest - breakpoint);
+        if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
+          return index;
+        }
+        return acc;
+      },
+      0
+    );
+    setActiveCard(closestBreakpointIndex);
+  });
 
-    const unsubscribe = scrollYProgress.onChange(handleScroll);
-    return () => unsubscribe();
-  }, [scrollYProgress, content, cardLength]);
+  const backgroundColors = [
+    "#333333", // base color
+    "#2e2e2e", // slightly darker
+    "#292929", // slightly darker
+    "#242424", // slightly darker
+    "#1f1f1f", // slightly darker
+    "#1a1a1a", // slightly darker
+    "#151515", // slightly darker
+  ];
+
+  const [backgroundColor, setBackgroundColor] = useState(backgroundColors[0]);
+
+  useEffect(() => {
+    setBackgroundColor(backgroundColors[activeCard % backgroundColors.length]);
+    document.body.style.transition = "background-color 0.5s ease";
+    document.body.style.backgroundColor =
+      backgroundColors[activeCard % backgroundColors.length];
+  }, [activeCard]);
 
   return (
     <motion.div className="relative flex flex-col lg:flex-row w-full" ref={ref}>
-      <div className="w-full lg:w-[calc(100%-28rem)] pr-0 lg:pr-10">
+      <div className="w-full lg:w-[calc(100%-15rem)] pr-0 lg:pr-10">
         {content.map((item, index) => (
-          <div key={item.title + index} className="min-h-screen py-16">
-            <motion.h2
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: activeCard === index ? 1 : 0.3,
-              }}
-              className="font-mono font-bold text-[21.68px] mb-6"
-            >
+          <div key={item.title + index} className="py-4 md:max-h-[60vh]">
+            <h2 className="font-mono font-bold text-[21.68px] mb-6">
               {item.title}
-            </motion.h2>
-            <motion.p
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: activeCard === index ? 1 : 0.3,
-              }}
-              className="font-mono text-[14.85px] leading-[1.3] mb-6"
-            >
+            </h2>
+            <div className="font-mono text-[14.85px] mb-6">
               {item.description}
-            </motion.p>
-            <div className="lg:hidden">{item.content}</div>
+            </div>
           </div>
         ))}
       </div>
       <div
         className={cn(
-          "hidden lg:block sticky top-10 h-80 w-96 rounded-lg",
+          "hidden lg:block sticky top-10 h-full w-48 overflow-hidden rounded-lg",
           contentClassName
         )}
       >
-        {content[activeCard].content ?? null}
+        <div className="p-4">
+          <ul className="list-none space-y-2 text-xs">
+            {content.map((item, index) => (
+              <motion.li
+                key={index}
+                className={activeCard === index ? "text-orange-500" : ""}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.5 }}
+                transition={{ duration: 0.5 }}
+              >
+                <a
+                  href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+                  className="hover:underline"
+                >
+                  {item.title}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </div>
     </motion.div>
   );
