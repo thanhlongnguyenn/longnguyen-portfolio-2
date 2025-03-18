@@ -161,9 +161,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   );
 };
 
-// ...existing code...
-
-// ...existing code...
 
 export const Card = ({
   card,
@@ -243,14 +240,16 @@ export const Card = ({
                 {card.title}
               </motion.p>
               <div className="py-10">{card.content}</div>
-              <a
-                href={`/my-projects/${card.title
-                  .toLowerCase()
-                  .replace(/\s+/g, "-")}`}
-                className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded"
-              >
-                View Project
-              </a>
+              <div className="flex justify-end">
+                <a
+                  href={`/my-projects/${card.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="mt-4 inline-block bg-[#FF611D] py-2 px-4 rounded-3xl items-center justify-center float-right"
+                >
+                  View Project
+                </a>
+              </div>
             </motion.div>
           </div>
         )}
@@ -285,10 +284,6 @@ export const Card = ({
     </>
   );
 };
-
-// ...existing code...
-
-// ...existing code...
 
 export const BlurImage = ({
   height,
