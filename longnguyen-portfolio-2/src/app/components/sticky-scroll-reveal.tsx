@@ -16,7 +16,7 @@ export const StickyScroll = ({
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -48,10 +48,7 @@ export const StickyScroll = ({
     "#151515", // slightly darker
   ];
 
-  const [backgroundColor, setBackgroundColor] = useState(backgroundColors[0]);
-
   useEffect(() => {
-    setBackgroundColor(backgroundColors[activeCard % backgroundColors.length]);
     document.body.style.transition = "background-color 0.5s ease";
     document.body.style.backgroundColor =
       backgroundColors[activeCard % backgroundColors.length];

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 import {twMerge} from "tailwind-merge";
-import { Header } from "./sections/Header";
+// import { Header } from "./sections/Header";
 
 const inter = Inter({
   variable: "--font-sans",
