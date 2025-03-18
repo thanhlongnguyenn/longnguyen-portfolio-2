@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import DecryptedText from "../components/decryptedtext";
 import RotatingText from "../components/rotatingtext";
 import AnimatedContent from "../components/animatedcontent";
@@ -126,9 +127,9 @@ export const Hero = () => {
           </AnimatedContent>
 
           <AnimatedContent
-            distance={100}
+            distance={200}
             direction="vertical"
-            reverse={false}
+            reverse={true}
             config={{ tension: 70, friction: 13 }}
             initialOpacity={0}
             animateOpacity
@@ -136,10 +137,14 @@ export const Hero = () => {
             threshold={0.2}
             delay={1800}
           >
-            <div className="pt-48">
-              <button className="border hover:border-[#FF611D] hover:text-[#FF611D] hover:shadow-md transition duration-200 p-2 px-3 rounded-full font-semibold">
-                <a href="#">Let's find out more!</a>
-              </button>
+            <div className="pt-96">
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="text-[#FF611D] text-4xl"
+              >
+                ↓
+              </motion.div>
             </div>
           </AnimatedContent>
         </div>

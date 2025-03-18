@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "@/app/sections/Header";
 import Image from "next/image";
 import AnimatedContent from "../components/animatedcontent";
 import GitHubCalendar from "react-github-calendar";
@@ -7,7 +6,6 @@ import GitHubCalendar from "react-github-calendar";
 const AboutPage = () => {
   return (
     <div>
-      <Header />
       <div className="relative font-mono">
         <div className="container mx-auto px-10 md:px-15 lg:px-12 pt-28 lg:pt-40">
           <AnimatedContent

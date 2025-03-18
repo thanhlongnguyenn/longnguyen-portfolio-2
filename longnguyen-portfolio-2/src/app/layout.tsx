@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 import {twMerge} from "tailwind-merge";
-// import { Header } from "./sections/Header";
+import Footer from "./sections/Footer";
+import { Header } from "./sections/Header";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -28,8 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={twMerge(inter.variable, jetBrainMono.variable, "bg-[#333333] text-[#D6D2BD] font-sans antialiased")}>
-        {/* <Header /> */}
+        <Header />
         {children}
+        <Footer />
         </body>
     </html>
   );

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Header } from "../../sections/Header";
 import Image from "next/image";
 import ScrollVelocity from "@/app/components/scrollvelocity";
 import { StickyScroll } from "../../components/sticky-scroll-reveal";
@@ -16,7 +15,7 @@ export default function MedPantry() {
             as a bridge between surplus medical supplies and communities in
             need. Their warehouse operates as a central hub, collecting and
             sorting unused medical equipment from various healthcare facilities.
-            Here is the links to the{" "}
+            Here are the links to the{" "}
             <a
               href="https://medicalpantry.org/"
               className="text-orange underline"
@@ -38,8 +37,9 @@ export default function MedPantry() {
             existing manual labour system created bottlenecks, making it
             difficult to track available storage and efficiently allocate
             resources. To address this challenge, my team and I developed a
-            virtual warehouse system that allows for precise tracking and entry
-            of stock, streamlining the entire inventory process.
+            <span className="text-orange"> virtual warehouse system</span> that
+            allows for precise tracking and entry of stock, streamlining the
+            entire inventory process.
           </p>
         </div>
       ),
@@ -48,17 +48,18 @@ export default function MedPantry() {
       title: "MEET THE TEAM",
       description: (
         <div>
-          <p className="mb-4">
-            Our team was composed of skilled individuals who collaborated to
-            bring this project to life. I was responsible for UI/UX design and
-            frontend development, ensuring an intuitive user experience. Kai
-            took on the role of product owner and backend developer, guiding the
-            project's direction. Henry led API development and database
-            integration, while Abdullah focused on quality assurance and
-            deployment. Sho contributed to frontend development and product
-            documentation. Together, we worked efficiently, combining our
-            expertise to create a robust and effective solution for Medical
-            Pantry.
+          <p>
+            Our team was composed of 5 final-year students who collaborated to
+            bring this project to life. I was responsible for{" "}
+            <span className="text-orange">UI/UX design</span> and{" "}
+            <span className="text-orange">frontend development</span>, ensuring
+            an intuitive user experience. Kai took on the role of product owner
+            and backend developer, guiding the project's direction. Henry led
+            API development and database integration, while Abdullah focused on
+            quality assurance and deployment. Sho contributed to frontend
+            development and product documentation. Together, we worked
+            efficiently, applying our previous knowledge to create a robust and
+            effective solution for Medical Pantry.
           </p>
         </div>
       ),
@@ -67,11 +68,11 @@ export default function MedPantry() {
       title: "THE MANUAL SORTING PROCESS AND ITS PROBLEM",
       description: (
         <div>
-          <p className="mb-4">
+          <p>
             The organisation relied on a structured packing process where
             donated medical supplies are sorted into "Baxter Boxes" before being
             distributed.{" "}
-            <span className="font-bold text-orange">
+            <span className="font-bold text-orange italic">
               However, without a proper tracking system, managers had to
               manually identify available storage and update SKU fields in
               Shopify to reflect item locations.
@@ -80,6 +81,22 @@ export default function MedPantry() {
             process inefficient and error-prone. Our goal was to automate these
             steps to enhance workflow and reduce reliance on manual updates.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <Image
+              src="/sorting1.jpeg"
+              alt="Image 1"
+              width={200}
+              height={200}
+              className="object-cover w-100 h-70 rounded-2xl"
+            />
+            <Image
+              src="/sorting2.jpeg"
+              alt="Image 2"
+              width={200}
+              height={200}
+              className="object-cover object-top w-full h-70 rounded-2xl"
+            />
+          </div>
         </div>
       ),
     },
@@ -87,35 +104,69 @@ export default function MedPantry() {
       title: "OUR SOLUTION",
       description: (
         <div>
+          <p className="mb-4">
+            Our team developed a web application to overhaul Medical Pantry's
+            warehouse management. The existing system was inefficient, notably
+            using Shopify's SKU field to track item locations, which wasn't
+            scalable. Our solution was a{" "}
+            <span className="text-orange">dedicated virtual warehouse</span>.
+            Volunteers can now scan QR codes to log item locations accurately,
+            and a manager log provides oversight of all transactions. The app
+            also optimizes order fulfillment by directing volunteers to the
+            nearest available items. This project streamlined Medical Pantry's
+            operations, demonstrating the power of targeted software solutions
+            to address real-world challenges.
+          </p>
           <p>
-            The implementation of our solutions led to significant improvements
-            in Medical Pantry's operations. We achieved a 40% reduction in
-            inventory management time through automated tracking systems. The
-            machine learning models successfully predicted demand patterns with
-            85% accuracy, leading to better stock level management. The
-            optimization of distribution routes resulted in a 25% reduction in
-            delivery times. These improvements have enabled Medical Pantry to
-            serve more communities effectively and handle a larger volume of
-            medical supplies with greater efficiency.
+            As a frontend developer on the project, I focused on building a{" "}
+            <span className="text-orange">
+              scalable and maintainable user interface
+            </span>{" "}
+            for the warehouse management web application. This involved{" "}
+            <span className="text-orange">developing reusable components</span>{" "}
+            to ensure consistency and efficiency across the application's
+            various features, such as the inventory overview and order
+            management sections. I also utilized libraries like{" "}
+            <a className="underline text-orange" href="https://ui.shadcn.com/">
+              shadcn
+            </a>{" "}
+            to accelerate development and leverage pre-built, accessible UI
+            components. Key functionalities I contributed to include enabling
+            volunteers to manage item locations using QR codes and developing
+            interfaces for managers to oversee transactions in the manager log.
+            This work supported the project's goal of providing Medical Pantry
+            with a system that separated location IDs from SKUs and streamlined
+            their warehouse operations.
           </p>
         </div>
       ),
     },
     {
-      title: "WHAT DID I LEARN FROM THIS PROJECT?",
+      title: "MY KEY TAKEAWAYS",
       description: (
         <div>
-          <p>
-            This project provided invaluable learning experiences across
-            multiple dimensions. Technically, I deepened my understanding of
-            machine learning applications in real-world scenarios and improved
-            my skills in data analysis and Python programming. The project
-            enhanced my ability to work with large datasets and implement
-            practical solutions. On a professional level, I gained experience in
-            project management, stakeholder communication, and working within an
-            agile framework. Perhaps most importantly, I learned how technology
-            can be leveraged to create meaningful social impact in healthcare
-            accessibility.
+          <p className="mb-4">
+            This project marked my first experience with web development,
+            providing invaluable learning opportunities to new technologies. I
+            gained practical experience in applying{" "}
+            <span className="text-orange">Agile methodologies</span>,
+            participating in sprints, and understanding the importance of clear
+            communication and documentation within a development team. I learned
+            the significance of writing tests, conducting quality assurance, and
+            collaborating effectively to achieve project goals. The experience
+            underscored the value of good documentation, asking questions, and
+            teamwork in software development.
+          </p>
+          <p className="mb-72">
+            Reflecting on this project, I see myself as a frontend developer who
+            enjoys creating user-friendly interfaces and engaging with design
+            principles. I'm excited to continue exploring web development and
+            enhancing my skills in building accessible, responsive, and
+            interactive applications. This project has sparked my interest in
+            frontend development, and I look forward to furthering my knowledge
+            in this area. It's also shown me that while a first product might
+            not be perfect, the experience and lessons learned make it
+            unforgettable.
           </p>
         </div>
       ),
@@ -124,7 +175,7 @@ export default function MedPantry() {
 
   return (
     <div className="relative min-h-screen">
-      <Header />
+
 
       {/* Hero Section */}
       <div className="w-full pt-20">
@@ -148,7 +199,7 @@ export default function MedPantry() {
             MEDICAL PANTRY
           </h1>
           <p className="font-mono text-[18.07px] mb-8">
-            A data-driven inventory management system for an Australian medical
+            A <span className="text-orange">data-driven inventory management system</span> for an Australian medical
             charity, optimizing the distribution of medical supplies to
             underserved communities.
           </p>
@@ -168,7 +219,6 @@ export default function MedPantry() {
           <StickyScroll content={content} />
         </div>
       </div>
-      <div className="h-dvh"></div> {/* Added extra space at the bottom */}
     </div>
   );
 }

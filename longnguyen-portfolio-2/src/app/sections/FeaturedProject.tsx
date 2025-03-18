@@ -16,7 +16,6 @@ export function FeaturedProject() {
         EXPLORE MY WORK
       </h2>
       <Carousel items={cards} />
-      <div className="h-dvh"></div>
     </div>
   );
 }

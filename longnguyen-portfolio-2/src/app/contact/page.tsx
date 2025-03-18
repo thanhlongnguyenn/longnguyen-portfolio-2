@@ -1,4 +1,3 @@
-import { Header } from "../sections/Header";
 import RotatingText from "../components/rotatingtext";
 import { ArrowUpRight } from "lucide-react";
 import AnimatedContent from "../components/animatedcontent";
@@ -41,7 +40,6 @@ const ContactPage = () => {
 
   return (
     <div>
-      <Header />
       <div className="flex flex-col items-center justify-center pt-28 lg:pt-34">
         <h1 className="font-bold text-[30px]">MY CONTACT</h1>
         <h2 className="font-semibold text-lg font-mono text-[#FF611D] flex items-center mb-12">
@@ -128,7 +126,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-dvh"></div>
     </div>
   );
 };

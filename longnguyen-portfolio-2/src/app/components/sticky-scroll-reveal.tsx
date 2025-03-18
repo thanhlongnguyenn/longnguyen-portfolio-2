@@ -54,11 +54,19 @@ export const StickyScroll = ({
       backgroundColors[activeCard % backgroundColors.length];
   }, [activeCard]);
 
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <motion.div className="relative flex flex-col lg:flex-row w-full" ref={ref}>
       <div className="w-full lg:w-[calc(100%-15rem)] pr-0 lg:pr-10">
         {content.map((item, index) => (
-          <div key={item.title + index} className="py-4 md:max-h-[60vh]">
+          <div key={item.title + index} className="py-4 md:max-h-[60vh]" id={item.title.replace(/\s+/g, "-").toLowerCase()}>
             <h2 className="font-mono font-bold text-[21.68px] mb-6">
               {item.title}
             </h2>
@@ -87,6 +95,7 @@ export const StickyScroll = ({
                 <a
                   href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
                   className="hover:underline"
+                  onClick={(event) => handleLinkClick(event, item.title.replace(/\s+/g, "-").toLowerCase())}
                 >
                   {item.title}
                 </a>
