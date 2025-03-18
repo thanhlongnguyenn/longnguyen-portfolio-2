@@ -2,10 +2,9 @@
 import React from "react";
 import { Header } from "../../sections/Header";
 import Image from "next/image";
-// import ScrollVelocity from "@/app/components/scrollvelocity";
-import { StickyScroll } from "../../components/sticky-scroll-reveal";
+import { StickyScroll } from "@/app/components/sticky-scroll-reveal";
 
-export default function MedPantry() {
+const eodp = () => {
   const content = [
     {
       title: "WHY DID I CHOOSE THIS FRAMEWORK PROJECT?",
@@ -91,9 +90,7 @@ export default function MedPantry() {
         <div className="max-w-[980px] mx-auto">
           {" "}
           {/* Added centered max-width container */}
-          <h1 className="font-sans font-semibold text-[43.46px] mb-6">
-            MEDICAL PANTRY
-          </h1>
+          <h1 className="font-sans font-semibold text-[43.46px] mb-6">EODP</h1>
           <p className="font-mono text-[18.07px] mb-8">
             A data-driven inventory management system for an Australian medical
             charity, optimizing the distribution of medical supplies to
@@ -101,21 +98,23 @@ export default function MedPantry() {
           </p>
           {/* ScrollVelocity Section */}
           {/* <div className="h-16 overflow-hidden mb-10">
-            <ScrollVelocity
-              texts={[
-                "Python • Machine Learning • Data Cleaning • Data Visualisation • Data Analysis • <pandas> • <scikit-learn> • <matplotlib> • <seaborn> • <numpy> •",
-              ]}
-              velocity={20}
-              className="font-mono text-[18.07px] text-orange"
-              numCopies={4}
-              velocityMapping={{ input: [0, 1000], output: [-2, 2] }}
-              parallaxClassName="h-16"
-              scrollerClassName="items-center"
-            />
-          </div> */}
+              <ScrollVelocity
+                texts={[
+                  "Python • Machine Learning • Data Cleaning • Data Visualisation • Data Analysis • <pandas> • <scikit-learn> • <matplotlib> • <seaborn> • <numpy> •",
+                ]}
+                velocity={20}
+                className="font-mono text-[18.07px] text-orange"
+                numCopies={4}
+                velocityMapping={{ input: [0, 1000], output: [-2, 2] }}
+                parallaxClassName="h-16"
+                scrollerClassName="items-center"
+              />
+            </div> */}
           <StickyScroll content={content} />
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default eodp;

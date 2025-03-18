@@ -2,8 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "../components/projectcards";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+
 
 export function FeaturedProject() {
   const cards = data.map((card, index) => (
@@ -11,14 +10,13 @@ export function FeaturedProject() {
   ));
 
   return (
-    <div>
-      <div className="flex flex-col items-start lg:items-center justify-center pt-24 lg:pt-34 px-8 md:px-18 lg:px-0">
-        <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
-        <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
-          EXPLORE MY WORK
-        </h2>
-      </div>
+    <div className="flex flex-col items-center justify-center pt-28 lg:pt-34">
+      <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
+      <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
+        EXPLORE MY WORK
+      </h2>
       <Carousel items={cards} />
+      <div className="h-dvh"></div>
     </div>
   );
 }
@@ -38,16 +36,6 @@ const MedPantryContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/medpantry"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-            Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };
@@ -67,16 +55,6 @@ const EODPContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/eodp"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-            Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };
@@ -96,16 +74,6 @@ const HMUContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/hmu"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-            Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };
@@ -113,7 +81,7 @@ const RAGContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
-        Smarter conversations, built for real impact. During my internship, I’m
+        Smarter conversations, built for real impact. During my internship, I'm
         developing a RAG-powered chatbot that combines retrieval and generative
         AI to deliver more accurate, context-aware responses.
       </p>

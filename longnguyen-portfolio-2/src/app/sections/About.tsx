@@ -1,3 +1,4 @@
+
 import { Timeline } from "../components/timeline";
 
 export const About = () => {
@@ -78,13 +79,13 @@ export const About = () => {
   ];
   return (
     <div>
-      <div className="flex flex-col items-start lg:items-center justify-center pt-24 lg:pt-34 px-8 md:px-18 lg:px-0">
-        <h1 className="font-bold text-[30px]">MY JOURNEY</h1>
+      <div className="flex flex-col items-center justify-center pt-24 lg:pt-34">
+        <h1 className="font-bold text-[30px]">ABOUT ME</h1>
         <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
           CODE.EAT.SLEEP.REPEAT
         </h2>
-      </div>
         <Timeline data={data} />
+      </div>
     </div>
   );
 };

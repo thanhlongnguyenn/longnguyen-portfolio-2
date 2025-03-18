@@ -23,41 +23,27 @@ export const StickyScroll = ({
   });
   const cardLength = content.length;
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map(
-      (_, index) => index / (cardLength - 1)
-    );
-    const closestBreakpointIndex = cardsBreakpoints.reduce(
-      (acc, breakpoint, index) => {
-        const distance = Math.abs(latest - breakpoint);
-        if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-          return index;
-        }
-        return acc;
-      },
-      0
-    );
-    setActiveCard(closestBreakpointIndex);
-  });
-
-  const backgroundColors = [
-    "#0f172a", // slate-900
-    "#000000", // black
-    "#171717", // neutral-900
-  ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
-  ];
-
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
-
   useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
+    const handleScroll = () => {
+      const cardsBreakpoints = content.map(
+        (_, index) => index / (cardLength - 1)
+      );
+      const closestBreakpointIndex = cardsBreakpoints.reduce(
+        (acc, breakpoint, index) => {
+          const distance = Math.abs(scrollYProgress.get() - breakpoint);
+          if (distance < Math.abs(scrollYProgress.get() - cardsBreakpoints[acc])) {
+            return index;
+          }
+          return acc;
+        },
+        0
+      );
+      setActiveCard(closestBreakpointIndex);
+    };
+
+    const unsubscribe = scrollYProgress.onChange(handleScroll);
+    return () => unsubscribe();
+  }, [scrollYProgress, content, cardLength]);
 
   return (
     <motion.div className="relative flex flex-col lg:flex-row w-full" ref={ref}>
@@ -92,7 +78,7 @@ export const StickyScroll = ({
       </div>
       <div
         className={cn(
-          "hidden lg:block sticky top-10 h-80 w-96 overflow-hidden rounded-lg",
+          "hidden lg:block sticky top-10 h-80 w-96 rounded-lg",
           contentClassName
         )}
       >

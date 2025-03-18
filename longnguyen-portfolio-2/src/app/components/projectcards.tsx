@@ -1,5 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState, createContext, JSX } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  createContext,
+  JSX,
+} from "react";
 import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
@@ -51,25 +57,15 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const getCardWidth = () => {
-    return isMobile() ? 230 : 384; // Card width + gap
-  };
-
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: -getCardWidth(),
-        behavior: "smooth",
-      });
+      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: getCardWidth(),
-        behavior: "smooth",
-      });
+      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
   };
 
@@ -108,8 +104,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
           <div
             className={cn(
-              "flex flex-row justify-start gap-4 pl-8 md:pl-18.5 lg:pl-8",
-              "mx-auto max-w-7xl relative" // remove max-w-4xl if you want the carousel to span the full width of its container
+              "flex flex-row justify-start gap-4 pl-4",
+              "mx-auto relative" // remove max-w-4xl if you want the carousel to span the full width of its container
             )}
           >
             {items.map((item, index) => (
@@ -164,6 +160,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     </CarouselContext.Provider>
   );
 };
+
+// ...existing code...
 
 // ...existing code...
 
@@ -287,6 +285,8 @@ export const Card = ({
     </>
   );
 };
+
+// ...existing code...
 
 // ...existing code...
 
