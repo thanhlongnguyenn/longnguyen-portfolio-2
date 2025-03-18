@@ -46,13 +46,6 @@ const MedPantryContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <nav>
-          <button onClick={handleLearnMoreClick} className="text-[#FF611D]">
-            Learn more
-          </button>
-        </nav>
-      </div>
     </div>
   );
 };
@@ -72,16 +65,6 @@ const EODPContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/eodp"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-            Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };
@@ -101,16 +84,6 @@ const HMUContent = () => {
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
-      <div className="flex justify-end mt-4">
-        <Link href={"/hmu"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
-            Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };

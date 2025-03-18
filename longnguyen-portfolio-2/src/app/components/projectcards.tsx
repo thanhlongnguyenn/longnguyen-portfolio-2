@@ -165,6 +165,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   );
 };
 
+// ...existing code...
+
 export const Card = ({
   card,
   layout = false,
@@ -243,6 +245,12 @@ export const Card = ({
                 {card.title}
               </motion.p>
               <div className="py-10">{card.content}</div>
+              <a
+                href={`/my-projects/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+                className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded"
+              >
+                View Project
+              </a>
             </motion.div>
           </div>
         )}
@@ -277,6 +285,8 @@ export const Card = ({
     </>
   );
 };
+
+// ...existing code...
 
 export const BlurImage = ({
   height,
