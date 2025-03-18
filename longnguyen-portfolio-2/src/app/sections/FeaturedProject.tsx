@@ -2,9 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "../components/projectcards";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 
 export function FeaturedProject() {
@@ -13,13 +10,11 @@ export function FeaturedProject() {
   ));
 
   return (
-    <div>
-      <div className="flex flex-col items-start lg:items-center justify-center pt-24 lg:pt-34 px-8 md:px-18 lg:px-0">
-        <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
-        <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
-          EXPLORE MY WORK
-        </h2>
-      </div>
+    <div className="flex flex-col items-center justify-center pt-28 lg:pt-34">
+      <h1 className="font-bold text-[30px]">FEATURED PROJECTS</h1>
+      <h2 className="font-semibold text-lg font-mono text-[#FF611D]">
+        EXPLORE MY WORK
+      </h2>
       <Carousel items={cards} />
       <div className="h-dvh"></div>
     </div>
@@ -27,11 +22,6 @@ export function FeaturedProject() {
 }
 
 const MedPantryContent = () => {
-  const router = useRouter();
-
-  const handleLearnMoreClick = () => {
-    router.push("/medpantry");
-  };
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
