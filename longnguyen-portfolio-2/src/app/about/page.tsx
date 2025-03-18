@@ -152,6 +152,7 @@ const AboutPage = () => {
           />
         </div>
       </div>
+      <div className="h-dvh"></div>
     </div>
   );
 };

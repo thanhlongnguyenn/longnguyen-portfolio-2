@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { Header } from "../../sections/Header";
+import { Header } from "../sections/Header";
 import Image from "next/image";
-import ScrollVelocity from "@/app/components/scrollvelocity";
-import { StickyScroll } from "../../components/sticky-scroll-reveal";
+// import ScrollVelocity from "@/app/components/scrollvelocity";
+import { StickyScroll } from "../components/sticky-scroll-reveal";
 
-const MedPantry = () => {
+export default function MedPantry() {
   const content = [
     {
       title: "WHY DID I CHOOSE THIS FRAMEWORK PROJECT?",
@@ -71,7 +71,7 @@ const MedPantry = () => {
 
   return (
     <div className="relative min-h-screen">
-      <Header className="fixed top-0 w-full z-50" />
+      <Header />
 
       {/* Hero Section */}
       <div className="w-full pt-20">
@@ -100,7 +100,7 @@ const MedPantry = () => {
             underserved communities.
           </p>
           {/* ScrollVelocity Section */}
-          <div className="h-16 overflow-hidden mb-10">
+          {/* <div className="h-16 overflow-hidden mb-10">
             <ScrollVelocity
               texts={[
                 "Python • Machine Learning • Data Cleaning • Data Visualisation • Data Analysis • <pandas> • <scikit-learn> • <matplotlib> • <seaborn> • <numpy> •",
@@ -112,15 +112,10 @@ const MedPantry = () => {
               parallaxClassName="h-16"
               scrollerClassName="items-center"
             />
-          </div>
+          </div> */}
           <StickyScroll content={content} />
         </div>
       </div>
     </div>
   );
-};
-
-export default MedPantry;
-
-{
 }

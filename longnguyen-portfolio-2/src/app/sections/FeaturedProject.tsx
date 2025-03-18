@@ -4,6 +4,8 @@ import React from "react";
 import { Carousel, Card } from "../components/projectcards";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 export function FeaturedProject() {
   const cards = data.map((card, index) => (
@@ -19,11 +21,17 @@ export function FeaturedProject() {
         </h2>
       </div>
       <Carousel items={cards} />
+      <div className="h-dvh"></div>
     </div>
   );
 }
 
 const MedPantryContent = () => {
+  const router = useRouter();
+
+  const handleLearnMoreClick = () => {
+    router.push("/medpantry");
+  };
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
@@ -39,14 +47,11 @@ const MedPantryContent = () => {
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
       <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/medpantry"}>
-          <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
+        <nav>
+          <button onClick={handleLearnMoreClick} className="text-[#FF611D]">
             Learn more
-            <span className="ml-2">
-              <ArrowUpRight size={25} />
-            </span>
-          </div>
-        </Link>
+          </button>
+        </nav>
       </div>
     </div>
   );
@@ -97,7 +102,7 @@ const HMUContent = () => {
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
       />
       <div className="flex justify-end mt-4">
-        <Link href={"/my-projects/hmu"}>
+        <Link href={"/hmu"}>
           <div className="font-mono flex items-center text-[#FF611D] group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-300">
             Learn more
             <span className="ml-2">
@@ -113,7 +118,7 @@ const RAGContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
       <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
-        Smarter conversations, built for real impact. During my internship, I’m
+        Smarter conversations, built for real impact. During my internship, I'm
         developing a RAG-powered chatbot that combines retrieval and generative
         AI to deliver more accurate, context-aware responses.
       </p>
