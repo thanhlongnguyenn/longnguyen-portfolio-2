@@ -66,7 +66,7 @@ const ContactPage = () => {
         </h2>
 
         {/* Contact Links Menu */}
-                <div className="w-full max-w-2xl px-4">
+        <div className="w-full max-w-2xl px-4">
           {contactLinks.map((contact, index) => (
             <AnimatedContent
               key={index}
@@ -102,23 +102,23 @@ const ContactPage = () => {
             </AnimatedContent>
           ))}
         </div>
-        
+
         {/* Spread the Word Section */}
         <div className="w-full max-w-2xl px-4 mt-20 flex flex-col items-center justify-center">
           <h1 className="font-bold text-[30px]">SPREAD THE WORD!</h1>
           <h2 className="font-semibold text-lg font-mono text-[#FF611D] flex items-center mb-12">
             INTERESTED? SHARE MY PORTFOLIO!
           </h2>
-          <div className="flex flex-row space-x-4">
+          <div className="flex flex-row space-x-4 text-[#D6D2BD]">
             {shareLinks.map((share, index) => (
               <a
                 key={index}
                 href={share.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group text-[#FF611D] hover:text-[#D6D2BD] font-mono transition-colors duration-300"
+                className="group font-mono transition-colors duration-300"
               >
-                <div className="group-hover:bg-gray-100 p-2 rounded transition-colors duration-300">
+                <div className="group-hover:text-[#FF611D] text-[#D6D2BD] p-2 rounded transition-colors duration-300">
                   {share.name}
                 </div>
               </a>
