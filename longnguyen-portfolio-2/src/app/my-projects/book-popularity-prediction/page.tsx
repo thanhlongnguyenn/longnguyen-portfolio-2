@@ -4,169 +4,355 @@ import Image from "next/image";
 import { StickyScroll } from "@/app/components/sticky-scroll-reveal";
 import ScrollVelocity from "@/app/components/scrollvelocity";
 
+
 const eodp = () => {
-const content = [
+  const content = [
     {
-      title: "WHAT IS THIS PROJECT ABOUT?",
+      title: "MOTIVATION",
       description: (
         <div>
-          <p className="mb-4">
-            The Medical Pantry is an Australian charity organization that serves
-            as a bridge between surplus medical supplies and communities in
-            need. Their warehouse operates as a central hub, collecting and
-            sorting unused medical equipment from various healthcare facilities.
-            Here are the links to the{" "}
-            <a
-              href="https://medicalpantry.org/"
-              className="text-orange underline"
-            >
-              Medical Pantry website
-            </a>{" "}
-            and their{" "}
-            <a
-              href="https://shop.medicalpantry.org/"
-              className="text-orange underline"
-            >
-              Shopify store
-            </a>
-            .
-          </p>
-          <p className="mb-4">
-            Medical Pantry needed an efficient solution for its stock management
-            process, starting from sorting donated medical supplies. The
-            existing manual labour system created bottlenecks, making it
-            difficult to track available storage and efficiently allocate
-            resources. To address this challenge, my team and I developed a
-            <span className="text-orange"> virtual warehouse system</span> that
-            allows for precise tracking and entry of stock, streamlining the
-            entire inventory process.
+          <p>
+            Books have long been a source of inspiration for blockbuster movies,
+            but how do studios decide which ones have cinematic potential? Our
+            team set out to answer this question using machine learning. My team
+            and I analysed over 18,000 book titles to predict their likelihood
+            of becoming high-revenue films, empowering studios with data-driven
+            decision-making.
           </p>
         </div>
       ),
     },
     {
-      title: "MEET THE TEAM",
+      title: "TECHNOLOGIES USED",
       description: (
         <div>
-          <p>
-            Our team was composed of 5 final-year students who collaborated to
-            bring this project to life. I was responsible for{" "}
-            <span className="text-orange">UI/UX design</span> and{" "}
-            <span className="text-orange">frontend development</span>, ensuring
-            an intuitive user experience. Kai took on the role of product owner
-            and backend developer, guiding the project's direction. Henry led
-            API development and database integration, while Abdullah focused on
-            quality assurance and deployment. Sho contributed to frontend
-            development and product documentation. Together, we worked
-            efficiently, applying our previous knowledge to create a robust and
-            effective solution for Medical Pantry.
+          <p className="mb-4">
+            To ensure an efficient and scalable workflow, we utilized a range of
+            tools for data handling, model training, and evaluation:
           </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <span className="text-orange">Programming Languages:</span> Python
+            </li>
+            <li>
+              <span className="text-orange">Data Processing:</span> Pandas,
+              NumPy
+            </li>
+            <li>
+              <span className="text-orange">Machine Learning:</span>{" "}
+              Scikit-learn, TensorFlow
+            </li>
+            <li>
+              <span className="text-orange">Visualization:</span> Matplotlib,
+              Seaborn
+            </li>
+            <li>
+              <span className="text-orange">Workflow & Version Control:</span>{" "}
+              Jupyter Notebook, GitHub
+            </li>
+          </ul>
         </div>
       ),
     },
     {
-      title: "THE MANUAL SORTING PROCESS AND ITS PROBLEM",
+      title: "DATA PREPROCESSING AND FEATURE SELECTION",
       description: (
         <div>
-          <p>
-            The organisation relied on a structured packing process where
-            donated medical supplies are sorted into "Baxter Boxes" before being
-            distributed.{" "}
-            <span className="font-bold text-orange italic">
-              However, without a proper tracking system, managers had to
-              manually identify available storage and update SKU fields in
-              Shopify to reflect item locations.
-            </span>{" "}
-            Volunteers depended on direct instructions from managers, making the
-            process inefficient and error-prone. Our goal was to automate these
-            steps to enhance workflow and reduce reliance on manual updates.
+          <p className="mb-4">
+            We started by diving into the data, cleaning and preprocessing it to
+            ensure its quality. This involved handling invalid ISBNs,
+            standardizing author names, and dealing with missing or abnormal
+            data in book years, user ages, and user countries.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+          <p className="mb-4">
+            To assess a book's popularity, we needed a metric that went beyond
+            simple average ratings. We considered both the mean rating and the
+            number of people who had rated the book. In our approach, a book's
+            average rating was given higher importance than the number of
+            ratings. Additionally, we recognized that the significance of each
+            additional rating decreases as the total number of ratings
+            increases. For instance, a book with a 10/10 rating from 20
+            reviewers should be considered more popular than a 10/10 book with
+            only 2 reviews. However, the difference in popularity between a book
+            with 600 ratings and one with 582 ratings is much less pronounced.
+            Our "book popularity score" was designed to capture these nuances.
+          </p>
+          <div className="mt-4">
+            <p
+              style={{
+                fontFamily: "serif",
+                fontSize: "1.5rem",
+                textAlign: "center",
+              }}
+              className="italic mb-4"
+            >
+              p<sub>i</sub> = r<sub>i</sub> &middot; log<sub>20</sub>(n
+              <sub>i</sub> + m)
+            </p>
+          </div>
+          <p className="mb-4">
+            <div className="font-bold">Formula explanation:</div>
+            <ul className="list-disc list-inside mt-2">
+              <li>
+                <strong>m</strong> is the mean number of ratings across all
+                books.
+              </li>
+              <li>
+                <strong>i</strong> represents a specific book.
+              </li>
+              <li>
+                <strong>
+                  p<sub>i</sub>
+                </strong>{" "}
+                is the popularity score for book <strong>i</strong>.
+              </li>
+              <li>
+                <strong>
+                  r<sub>i</sub>
+                </strong>{" "}
+                is the mean rating for book <strong>i</strong>.
+              </li>
+              <li>
+                <strong>
+                  n<sub>i</sub>
+                </strong>{" "}
+                is the number of ratings for book <strong>i</strong>.
+              </li>
+            </ul>
+          </p>
+          <p className="">
+            To identify the most influential factors in a book's success, we
+            used mutual information scores. We looked at features like book
+            author, publication year, number of unique countries reviewing the
+            book, and median reviewer age. Author and number of unique country
+            reviews stood out as key indicators of popularity.
+          </p>
+          <table className="table-auto w-full">
+            <thead>
+              <tr className="text-orange">
+                <th className="px-4 py-2">Feature</th>
+                <th className="px-4 py-2">Normalized MI Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border px-4 py-2">Book Author</td>
+                <td className="border px-4 py-2">0.47535</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Year of Publication</td>
+                <td className="border px-4 py-2">0.00749</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">
+                  Number of Unique Countries that Have Reviewed the Book
+                </td>
+                <td className="border px-4 py-2">0.21448</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Median Reviewer Age</td>
+                <td className="border px-4 py-2">0.00708</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ),
+    },
+    {
+      title: "UNSUPERVISED LEARNING",
+      description: (
+        <div>
+          <p className="mb-4">
+            K-means clustering was usedto explore reader demographics, seeking
+            patterns based on book popularity, reader age, and global reach.
+            While initial visualizations didn't reveal distinct clusters,
+            further analysis suggested that reader age was the most significant
+            differentiating factor. Ultimately, our clustering analysis
+            indicated a general reader base across all ages, rather than
+            distinct demographic groups with unique reading habits.
+          </p>
+          <div className="flex justify-center items-center space-x-4">
             <Image
-              src="/sorting1.jpeg"
-              alt="Image 1"
-              width={200}
-              height={200}
-              className="object-cover w-100 h-70 rounded-2xl"
+              src="/elbow.png"
+              alt="Graph 1"
+              width={500}
+              height={300}
+              className="object-contain"
             />
             <Image
-              src="/sorting2.jpeg"
-              alt="Image 2"
-              width={200}
-              height={200}
-              className="object-cover object-top w-full h-70 rounded-2xl"
+              src="/elbow2.png"
+              alt="Graph 2"
+              width={500}
+              height={300}
+              className="object-contain"
             />
           </div>
         </div>
       ),
     },
-    {
-      title: "OUR SOLUTION",
+        {
+      title: "SUPERVISED LEARNING",
       description: (
         <div>
           <p className="mb-4">
-            Our team developed a web application to overhaul Medical Pantry's
-            warehouse management. The existing system was inefficient, notably
-            using Shopify's SKU field to track item locations, which wasn't
-            scalable. Our solution was a{" "}
-            <span className="text-orange">dedicated virtual warehouse</span>.
-            Volunteers can now scan QR codes to log item locations accurately,
-            and a manager log provides oversight of all transactions. The app
-            also optimizes order fulfillment by directing volunteers to the
-            nearest available items. This project streamlined Medical Pantry's
-            operations, demonstrating the power of targeted software solutions
-            to address real-world challenges.
+            To quantify the relationship between a book’s popularity and its
+            global reach, we used regression analysis. We explored linear,
+            quadratic, square root, logarithmic, and reciprocal regressions,
+            using 5-fold cross-validation to compare their predictive power.
+            Linear regression emerged as the most accurate and precise model.
+            Our analysis confirmed a positive, linear relationship: books with a
+            wider global spread tend to be more popular.
           </p>
-          <p>
-            As a frontend developer on the project, I focused on building a{" "}
-            <span className="text-orange">
-              scalable and maintainable user interface
-            </span>{" "}
-            for the warehouse management web application. This involved{" "}
-            <span className="text-orange">developing reusable components</span>{" "}
-            to ensure consistency and efficiency across the application's
-            various features, such as the inventory overview and order
-            management sections. I also utilized libraries like{" "}
-            <a className="underline text-orange" href="https://ui.shadcn.com/">
-              shadcn
-            </a>{" "}
-            to accelerate development and leverage pre-built, accessible UI
-            components. Key functionalities I contributed to include enabling
-            volunteers to manage item locations using QR codes and developing
-            interfaces for managers to oversee transactions in the manager log.
-            This work supported the project's goal of providing Medical Pantry
-            with a system that separated location IDs from SKUs and streamlined
-            their warehouse operations.
-          </p>
+          <div className="flex flex-col mt-4 space-y-4">
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full">
+                <thead>
+                  <tr className="text-orange">
+                    <th className="px-4 py-2">Regression Technique</th>
+                    <th className="px-4 py-2">MSE cross validation round 1</th>
+                    <th className="px-4 py-2">MSE cross validation round 2</th>
+                    <th className="px-4 py-2">MSE cross validation round 3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border px-4 py-2">Linear</td>
+                    <td className="border px-4 py-2">1.3418</td>
+                    <td className="border px-4 py-2">1.3193</td>
+                    <td className="border px-4 py-2">1.3183</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">Quadratic</td>
+                    <td className="border px-4 py-2">1.3507</td>
+                    <td className="border px-4 py-2">1.3287</td>
+                    <td className="border px-4 py-2">1.3229</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">Square Root</td>
+                    <td className="border px-4 py-2">1.4049</td>
+                    <td className="border px-4 py-2">1.3798</td>
+                    <td className="border px-4 py-2">1.3728</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">Logarithmic</td>
+                    <td className="border px-4 py-2">1.4936</td>
+                    <td className="border px-4 py-2">1.4640</td>
+                    <td className="border px-4 py-2">1.4557</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">Reciprocal</td>
+                    <td className="border px-4 py-2">1.6400</td>
+                    <td className="border px-4 py-2">1.6071</td>
+                    <td className="border px-4 py-2">1.5911</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full">
+                <thead>
+                  <tr className="text-orange">
+                    <th className="px-4 py-2">MSE cross validation round 4</th>
+                    <th className="px-4 py-2">MSE cross validation round 5</th>
+                    <th className="px-4 py-2">Mean MSE</th>
+                    <th className="px-4 py-2">Variance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border px-4 py-2">1.3878</td>
+                    <td className="border px-4 py-2">1.3805</td>
+                    <td className="border px-4 py-2">1.3496</td>
+                    <td className="border px-4 py-2">0.0009</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">1.3963</td>
+                    <td className="border px-4 py-2">1.6514</td>
+                    <td className="border px-4 py-2">1.4100</td>
+                    <td className="border px-4 py-2">0.0152</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">1.4665</td>
+                    <td className="border px-4 py-2">1.3667</td>
+                    <td className="border px-4 py-2">1.3981</td>
+                    <td className="border px-4 py-2">0.0013</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">1.5772</td>
+                    <td className="border px-4 py-2">1.4478</td>
+                    <td className="border px-4 py-2">1.4877</td>
+                    <td className="border px-4 py-2">0.0022</td>
+                  </tr>
+                  <tr>
+                    <td className="border px-4 py-2">1.7530</td>
+                    <td className="border px-4 py-2">1.5894</td>
+                    <td className="border px-4 py-2">1.6361</td>
+                    <td className="border px-4 py-2">0.0037</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       ),
     },
     {
-      title: "MY KEY TAKEAWAYS",
+      title: "AUTHOR ANALYSIS",
       description: (
         <div>
           <p className="mb-4">
-            This project marked my first experience with web development,
-            providing invaluable learning opportunities to new technologies. I
-            gained practical experience in applying{" "}
-            <span className="text-orange">Agile methodologies</span>,
-            participating in sprints, and understanding the importance of clear
-            communication and documentation within a development team. I learned
-            the significance of writing tests, conducting quality assurance, and
-            collaborating effectively to achieve project goals. The experience
-            underscored the value of good documentation, asking questions, and
-            teamwork in software development.
+            Given the strong link between an author’s popularity and a book's
+            success, we delved deeper into author analysis. We found that highly
+            popular authors often have a larger body of work and a broad global
+            audience. For authors with popularity below 8, popularity tends to
+            increase as they write more books. Authors with outstanding
+            popularities above 8 tend to have “one-hit-wonders.
           </p>
-          <p>
-            Reflecting on this project, I see myself as a frontend developer who
-            enjoys creating user-friendly interfaces and engaging with design
-            principles. I'm excited to continue exploring web development and
-            enhancing my skills in building accessible, responsive, and
-            interactive applications. This project has sparked my interest in
-            frontend development, and I look forward to furthering my knowledge
-            in this area. It's also shown me that while a first product might
-            not be perfect, the experience and lessons learned make it
-            unforgettable.
+          <div className="flex justify-center items-center">
+            <Image
+              src="/author.png"
+              alt="Graph 3"
+              width={400}
+              height={300}
+              className="object-contain"
+            />
+          </div>
+        </div>
+      ),
+    },
+
+    {
+      title: "OUR RECOMMENDATIONS",
+      description: (
+        <div>
+          <p className="mb-4">
+            Based on our analysis, we recommend the following strategies for
+            selecting books with high potential for film adaptation:
+          </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <span className="text-orange">Focus on global reach:</span>{" "}
+              Prioritize books with a wide global spread, even if they don't
+              have a massive number of readers yet.
+            </li>
+            <li>
+              <span className="text-orange">Bet on established authors:</span>{" "}
+              Seek out books by well-established, popular authors, or acquire
+              the rights to their works early.
+            </li>
+            <li>
+              <span className="text-orange">
+                Consider prolific authors with global appeal:
+              </span>{" "}
+              Alternatively, consider authors who may not be famous yet but have
+              written many books and appeal to a global audience.
+            </li>
+          </ul>
+          <p className="mt-4">
+            By following these data-driven strategies, movie production
+            companies can increase their odds of selecting books that will
+            captivate audiences worldwide and achieve box office success.
           </p>
         </div>
       ),
@@ -175,37 +361,35 @@ const content = [
 
   return (
     <div className="relative min-h-screen">
-
       {/* Hero Section */}
       <div className="w-full pt-20">
         <div className="bg-[#1a1a1a] flex justify-center items-center">
           <Image
-            src={"/medpantry.svg"}
-            alt="Macbook mockup for Medical Pantry"
+            src={"/eodpheader.svg"}
+            alt="Book popularity prediction header image"
             height="1000"
             width="1000"
             className="object-contain"
           />
         </div>
       </div>
-
       {/* Main Content - Added max-width container */}
       <div className="w-full px-5 md:px-15.5 py-12 h-full">
         <div className="max-w-[1000px] mx-auto">
           {" "}
           {/* Increased max-width to 1280px */}
           <h1 className="font-sans font-semibold text-[43.46px] mb-6">
-            MEDICAL PANTRY
+            BOOK POPULARITY PREDICTION
           </h1>
           <p className="font-mono text-[18.07px] mb-8">
-            A <span className="text-orange">data-driven inventory management system</span> for an Australian medical
-            charity, optimizing the distribution of medical supplies to
-            underserved communities.
+            A <span className="text-orange">machine learning project</span>{" "}
+            delivering data-driven strategies for movie production companies to
+            select books with high film adaptation potential.
           </p>
           <div className="h-16 overflow-hidden mb-10">
             <ScrollVelocity
               texts={[
-                "React • TailwindCSS • Vercel • UI/UX • Git • AGILE • Figma • ",
+                "Python • Machine Learning • Data Analysis • <pandas> • <numpy> • <scikit-learn> • <matplotlib> • <Seaborn> • ",
               ]}
               velocity={20}
               className="font-mono text-[18.07px] text-orange"
@@ -218,7 +402,6 @@ const content = [
           <StickyScroll content={content} />
         </div>
       </div>
-      <div className="h-dvh"></div> {/* Added extra space at the bottom */}
     </div>
   );
 };

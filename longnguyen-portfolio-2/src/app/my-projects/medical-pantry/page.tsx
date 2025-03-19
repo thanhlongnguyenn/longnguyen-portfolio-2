@@ -138,6 +138,22 @@ export default function MedPantry() {
             with a system that separated location IDs from SKUs and streamlined
             their warehouse operations.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <Image
+              src="/sorting1.jpeg"
+              alt="Image 1"
+              width={200}
+              height={200}
+              className="object-cover w-100 h-70 rounded-2xl"
+            />
+            <Image
+              src="/sorting2.jpeg"
+              alt="Image 2"
+              width={200}
+              height={200}
+              className="object-cover object-top w-full h-70 rounded-2xl"
+            />
+          </div>
         </div>
       ),
     },

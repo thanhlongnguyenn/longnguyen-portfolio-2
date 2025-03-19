@@ -77,9 +77,9 @@ export const StickyScroll = ({
           <div
             key={item.title + index}
             id={item.title.replace(/\s+/g, "-").toLowerCase()}
-            className="py-4 md:max-h-[60vh]"
+            className="py-4 md:max-h-[100vh]"
           >
-            <h2 className="font-mono font-bold text-[21.68px] mb-6">
+            <h2 className="font-mono font-bold text-[21.68px] mb-6 text-orange">
               {item.title}
             </h2>
             <div className="font-mono text-[14.85px] mb-6">

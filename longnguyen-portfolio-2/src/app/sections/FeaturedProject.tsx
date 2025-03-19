@@ -29,7 +29,7 @@ const MedPantryContent = () => {
         smarter and more efficient.{" "}
       </p>
       <Image
-        src="https://i.imgur.com/xzMbpOz.png"
+        src="/medpantrymacmockup.png"
         alt="Macbook mockup for Medical Pantry"
         height="500"
         width="500"
@@ -48,8 +48,8 @@ const EODPContent = () => {
         decisions.
       </p>
       <Image
-        src="https://i.imgur.com/xzMbpOz.png"
-        alt="Macbook mockup for Medical Pantry"
+        src="/edoppreview.svg"
+        alt="Book popularity prediction"
         height="500"
         width="500"
         className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
@@ -66,13 +66,7 @@ const HMUContent = () => {
         structured PDFs—simplifying document management with precision and
         speed.
       </p>
-      <Image
-        src="https://i.imgur.com/xzMbpOz.png"
-        alt="Macbook mockup for Medical Pantry"
-        height="500"
-        width="500"
-        className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
-      />
+
     </div>
   );
 };
@@ -84,13 +78,7 @@ const RAGContent = () => {
         developing a RAG-powered chatbot that combines retrieval and generative
         AI to deliver more accurate, context-aware responses.
       </p>
-      <Image
-        src="https://i.imgur.com/xzMbpOz.png"
-        alt="Macbook mockup for Medical Pantry"
-        height="500"
-        width="500"
-        className="md:h-1/2 pt-5 h-full w-full mx-auto object-contain"
-      />
+
     </div>
   );
 };
