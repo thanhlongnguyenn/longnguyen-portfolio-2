@@ -35,7 +35,7 @@ export const Hero = () => {
     );
 
   return (
-    <div className="relative pt-24 md:pt-32 lg:pt-32 min-h-dvh">
+    <div className="relative pt-24 md:pt-32 lg:pt-32 min-h-dvh xl:max-w-[2560px] xl:min-h-1/2 mx-auto">
       {/* Squares component as background */}
       <div className="absolute inset-0 z-0 opacity-10">
         <Squares

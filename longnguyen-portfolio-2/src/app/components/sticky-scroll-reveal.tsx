@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef} from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion } from "motion/react";
 import { cn } from "../lib/utils";
@@ -19,23 +19,31 @@ export const StickyScroll = ({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start end", "end end"],
   });
-  const cardLength = content.length;
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength);
-    const closestBreakpointIndex = cardsBreakpoints.reduce(
-      (acc, breakpoint, index) => {
-        const distance = Math.abs(latest - breakpoint);
-        if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-          return index;
-        }
-        return acc;
-      },
-      0
-    );
-    setActiveCard(closestBreakpointIndex);
+  useMotionValueEvent(scrollYProgress, "change", () => {
+    if (ref.current) {
+      setTimeout(() => {
+        const sections = ref.current?.querySelectorAll("div[id]") || [];
+        const middleOfViewport = window.innerHeight / 2;
+
+        let closestSectionIndex = 0;
+        let closestDistance = Infinity;
+
+        sections.forEach((section, index) => {
+          const rect = section.getBoundingClientRect();
+          const distance = Math.abs(rect.top - middleOfViewport);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestSectionIndex = index;
+          }
+        });
+
+        setActiveCard(closestSectionIndex);
+      }, 50); // slight delay to allow layout update
+    }
   });
 
   const backgroundColors = [
@@ -54,11 +62,11 @@ export const StickyScroll = ({
       backgroundColors[activeCard % backgroundColors.length];
   }, [activeCard]);
 
-  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "center"});
     }
   };
 
@@ -66,7 +74,11 @@ export const StickyScroll = ({
     <motion.div className="relative flex flex-col lg:flex-row w-full" ref={ref}>
       <div className="w-full lg:w-[calc(100%-15rem)] pr-0 lg:pr-10">
         {content.map((item, index) => (
-          <div key={item.title + index} className="py-4 md:max-h-[60vh]" id={item.title.replace(/\s+/g, "-").toLowerCase()}>
+          <div
+            key={item.title + index}
+            id={item.title.replace(/\s+/g, "-").toLowerCase()}
+            className="py-4 md:max-h-[60vh]"
+          >
             <h2 className="font-mono font-bold text-[21.68px] mb-6">
               {item.title}
             </h2>
@@ -95,7 +107,7 @@ export const StickyScroll = ({
                 <a
                   href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
                   className="hover:underline"
-                  onClick={(event) => handleLinkClick(event, item.title.replace(/\s+/g, "-").toLowerCase())}
+                  onClick={(event) => handleClick(event, item.title.replace(/\s+/g, "-").toLowerCase())}
                 >
                   {item.title}
                 </a>
