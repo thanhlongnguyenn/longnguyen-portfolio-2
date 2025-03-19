@@ -32,11 +32,11 @@ export default function RootLayout({
         <meta name="description" content="Long Nguyen's portfolio" />
 
         {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://thanhlongnguyen.vercel.app/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Long Nguyen" />
-        <meta property="og:description" content="Long Nguyen's portfolio" />
-        <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/9bd18980-2bde-4db0-8f61-8ec598aff2b6.png?token=_qTLRn6p4KnE4V7PrsKivjz0GDQRC5w3_ivOT_p9HSw&height=714&width=1200&expires=33278371349" />
+        <meta property='og:url' content='https://thanhlongnguyen.vercel.app/' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Long Nguyen' />
+        <meta property='og:description' content="Long Nguyen's portfolio" />
+        <meta property='og:image' content='https://opengraph.b-cdn.net/production/images/9bd18980-2bde-4db0-8f61-8ec598aff2b6.png?token=_qTLRn6p4KnE4V7PrsKivjz0GDQRC5w3_ivOT_p9HSw&height=714&width=1200&expires=33278371349' />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
