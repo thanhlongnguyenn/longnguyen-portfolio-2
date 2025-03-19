@@ -164,7 +164,7 @@ const eodp = () => {
       description: (
         <div>
           <p className="mb-4">
-            K-means clustering was usedto explore reader demographics, seeking
+            K-means clustering was used to explore reader demographics, seeking
             patterns based on book popularity, reader age, and global reach.
             While initial visualizations didn't reveal distinct clusters,
             further analysis suggested that reader age was the most significant

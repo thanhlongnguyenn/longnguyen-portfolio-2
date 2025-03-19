@@ -229,27 +229,29 @@ export const Card = ({
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-mono font-medium text-black dark:text-white"
+                className="text-base font-mono font-medium  "
               >
                 {card.category}
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white"
+                className="text-2xl md:text-5xl font-semibold  mt-4"
               >
                 {card.title}
               </motion.p>
               <div className="py-10">{card.content}</div>
-              <div className="flex justify-end">
-                <a
-                  href={`/my-projects/${card.title
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
-                  className="mt-4 inline-block bg-[#FF611D] py-2 px-4 rounded-3xl items-center justify-center float-right"
-                >
-                  View Project
-                </a>
-              </div>
+              {card.title !== "RAG-AI Personal Assistant" && (
+                <div className="flex justify-end">
+                  <a
+                    href={`/my-projects/${card.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
+                    className="mt-4 inline-block bg-[#FF611D] py-2 px-4 rounded-3xl items-center justify-center float-right transition duration-300 ease-in-out transform hover:scale-105 hover:bg-[#FF4500]"
+                  >
+                    View Project
+                  </a>
+                </div>
+              )}
             </motion.div>
           </div>
         )}
@@ -263,13 +265,13 @@ export const Card = ({
         <div className="relative z-40 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-sm md:text-base font-medium font-mono text-left"
+            className=" text-sm md:text-base font-medium font-mono text-left"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+            className=" text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
           >
             {card.title}
           </motion.p>

@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "../components/projectcards";
 
-
 export function FeaturedProject() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
@@ -66,19 +65,20 @@ const HMUContent = () => {
         structured PDFs—simplifying document management with precision and
         speed.
       </p>
-
     </div>
   );
 };
 const RAGContent = () => {
   return (
     <div className="bg-[#1a1a1a] p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto">
+      <p className="text-sm font-semibold md:text-xl lg-2xl font-sans max-w-3xl mx-auto mb-4">
         Smarter conversations, built for real impact. During my internship, I'm
         developing a RAG-powered chatbot that combines retrieval and generative
         AI to deliver more accurate, context-aware responses.
       </p>
-
+      <p className="text-sm font-bold md:text-xl lg-2xl font-sans max-w-3xl mx-auto text-orange">
+        The project is under development.
+      </p>
     </div>
   );
 };

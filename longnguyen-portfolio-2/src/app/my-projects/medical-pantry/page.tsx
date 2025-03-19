@@ -173,7 +173,7 @@ export default function MedPantry() {
             underscored the value of good documentation, asking questions, and
             teamwork in software development.
           </p>
-          <p className="mb-72">
+          <p>
             Reflecting on this project, I see myself as a frontend developer who
             enjoys creating user-friendly interfaces and engaging with design
             principles. I'm excited to continue exploring web development and
