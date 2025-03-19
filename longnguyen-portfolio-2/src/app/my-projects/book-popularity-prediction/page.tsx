@@ -156,6 +156,12 @@ const eodp = () => {
               </tr>
             </tbody>
           </table>
+          <div className="text-center mt-4">
+            <p className="text-sm">
+              The normalised mutual information scores between book popularity
+              and various other features of a book.
+            </p>
+          </div>
         </div>
       ),
     },
@@ -188,10 +194,16 @@ const eodp = () => {
               className="object-contain"
             />
           </div>
+          <div className="text-center mt-4">
+            <p className="text-sm">
+              K-Means clustering between 3 features using k = 3 by the Elbow
+              Method
+            </p>
+          </div>
         </div>
       ),
     },
-        {
+    {
       title: "SUPERVISED LEARNING",
       description: (
         <div>
@@ -292,6 +304,13 @@ const eodp = () => {
                   </tr>
                 </tbody>
               </table>
+              <div className="text-center mt-4">
+                <p className="text-sm">
+                  The mean squared error (MSE), average of mean squared errors
+                  and variance of mean squared errors for each regression
+                  technique over 5 rounds of cross validation
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -317,6 +336,11 @@ const eodp = () => {
               height={300}
               className="object-contain"
             />
+          </div>
+          <div className="text-center mt-4">
+            <p className="text-sm">
+              Regression analysis of author popularity against the number of books that author has written
+            </p>
           </div>
         </div>
       ),

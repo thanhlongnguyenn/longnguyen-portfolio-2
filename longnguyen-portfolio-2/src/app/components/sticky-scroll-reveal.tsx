@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useRef} from "react";
-import { useMotionValueEvent, useScroll } from "motion/react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "../lib/utils";
 
@@ -17,34 +16,37 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end end"],
-  });
 
-  useMotionValueEvent(scrollYProgress, "change", () => {
-    if (ref.current) {
-      setTimeout(() => {
-        const sections = ref.current?.querySelectorAll("div[id]") || [];
-        const middleOfViewport = window.innerHeight / 2;
-
-        let closestSectionIndex = 0;
-        let closestDistance = Infinity;
-
-        sections.forEach((section, index) => {
-          const rect = section.getBoundingClientRect();
-          const distance = Math.abs(rect.top - middleOfViewport);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestSectionIndex = index;
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = content.findIndex(
+              (item) =>
+                item.title.replace(/\s+/g, "-").toLowerCase() ===
+                entry.target.id
+            );
+            if (index !== -1) {
+              setTimeout(() => setActiveCard(index), 100); // Add a slight delay
+            }
           }
         });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1, // Adjust this value as needed
+      }
+    );
 
-        setActiveCard(closestSectionIndex);
-      }, 50); // slight delay to allow layout update
-    }
-  });
+    const sections = ref.current?.querySelectorAll("div[id]") || [];
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, [content]);
 
   const backgroundColors = [
     "#333333", // base color
@@ -62,11 +64,14 @@ export const StickyScroll = ({
       backgroundColors[activeCard % backgroundColors.length];
   }, [activeCard]);
 
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     event.preventDefault();
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "center"});
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -77,7 +82,7 @@ export const StickyScroll = ({
           <div
             key={item.title + index}
             id={item.title.replace(/\s+/g, "-").toLowerCase()}
-            className="py-4 md:max-h-[100vh]"
+            className="py-4 md:max-h-[200vh]"
           >
             <h2 className="font-mono font-bold text-[21.68px] mb-6 text-orange">
               {item.title}
@@ -107,7 +112,12 @@ export const StickyScroll = ({
                 <a
                   href={`#${item.title.replace(/\s+/g, "-").toLowerCase()}`}
                   className="hover:underline"
-                  onClick={(event) => handleClick(event, item.title.replace(/\s+/g, "-").toLowerCase())}
+                  onClick={(event) =>
+                    handleClick(
+                      event,
+                      item.title.replace(/\s+/g, "-").toLowerCase()
+                    )
+                  }
                 >
                   {item.title}
                 </a>

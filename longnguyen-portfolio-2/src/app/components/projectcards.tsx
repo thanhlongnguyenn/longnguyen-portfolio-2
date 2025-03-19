@@ -240,18 +240,19 @@ export const Card = ({
                 {card.title}
               </motion.p>
               <div className="py-10">{card.content}</div>
-              {card.title !== "RAG-AI Personal Assistant" && (
-                <div className="flex justify-end">
-                  <a
-                    href={`/my-projects/${card.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                    className="mt-4 inline-block bg-[#FF611D] py-2 px-4 rounded-3xl items-center justify-center float-right transition duration-300 ease-in-out transform hover:scale-105 hover:bg-[#FF4500]"
-                  >
-                    View Project
-                  </a>
-                </div>
-              )}
+              {card.title !== "RAG-AI Personal Assistant" &&
+                card.title !== "HMU_2PDF" && (
+                  <div className="flex justify-end">
+                    <a
+                      href={`/my-projects/${card.title
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                      className="mt-4 inline-block bg-[#FF611D] py-2 px-4 rounded-3xl items-center justify-center float-right transition duration-300 ease-in-out transform hover:scale-105 hover:bg-[#FF4500]"
+                    >
+                      View Project
+                    </a>
+                  </div>
+                )}
             </motion.div>
           </div>
         )}

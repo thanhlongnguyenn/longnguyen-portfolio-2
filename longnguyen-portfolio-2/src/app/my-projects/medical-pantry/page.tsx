@@ -97,6 +97,9 @@ export default function MedPantry() {
               className="object-cover object-top w-full h-70 rounded-2xl"
             />
           </div>
+          <div className="text-center mt-2">
+            <p className="text-sm">The sorting process at Medical Pantry</p>
+          </div>
         </div>
       ),
     },
@@ -117,7 +120,7 @@ export default function MedPantry() {
             operations, demonstrating the power of targeted software solutions
             to address real-world challenges.
           </p>
-          <p>
+          <p className="mb-4">
             As a frontend developer on the project, I focused on building a{" "}
             <span className="text-orange">
               scalable and maintainable user interface
@@ -138,21 +141,27 @@ export default function MedPantry() {
             with a system that separated location IDs from SKUs and streamlined
             their warehouse operations.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+          <div className="bg-white p-2 rounded-2xl flex justify-center items-center mb-4">
             <Image
-              src="/sorting1.jpeg"
-              alt="Image 1"
+              src="/managerlogwireframe.svg"
+              alt="Manager Log Wireframe"
               width={200}
               height={200}
-              className="object-cover w-100 h-70 rounded-2xl"
+              className="object-contain w-full h-full rounded-2xl"
             />
+          </div>
+          <div className="bg-white p-2 rounded-2xl flex justify-center items-center mb-4">
             <Image
-              src="/sorting2.jpeg"
-              alt="Image 2"
-              width={200}
-              height={200}
-              className="object-cover object-top w-full h-70 rounded-2xl"
+              src="/managerlogui.svg"
+              alt="Manager Log UI"
+              width={500}
+              height={500}
+              className="object-contain w-full h-80 rounded-2xl"
             />
+          </div>
+          <div className="text-center mt-2">
+            <p className="text-sm">Manager Log UI from wireframe to product</p>
           </div>
         </div>
       ),
@@ -180,9 +189,11 @@ export default function MedPantry() {
             enhancing my skills in building accessible, responsive, and
             interactive applications. This project has sparked my interest in
             frontend development, and I look forward to furthering my knowledge
-            in this area. It's also shown me that while a first product might
-            not be perfect, the experience and lessons learned make it
-            unforgettable.
+            in this area.{" "}
+            <span className="text-orange font-bold">
+              It's also shown me that while a first product might not be
+              perfect, the experience and lessons learned make it unforgettable.
+            </span>
           </p>
         </div>
       ),
@@ -191,8 +202,6 @@ export default function MedPantry() {
 
   return (
     <div className="relative min-h-screen">
-
-
       {/* Hero Section */}
       <div className="w-full pt-20">
         <div className="bg-[#1a1a1a] flex justify-center items-center">
@@ -215,9 +224,12 @@ export default function MedPantry() {
             MEDICAL PANTRY
           </h1>
           <p className="font-mono text-[18.07px] mb-8">
-            A <span className="text-orange">data-driven inventory management system</span> for an Australian medical
-            charity, optimizing the distribution of medical supplies to
-            underserved communities.
+            A{" "}
+            <span className="text-orange">
+              data-driven inventory management system
+            </span>{" "}
+            for an Australian medical charity, optimizing the distribution of
+            medical supplies to underserved communities.
           </p>
           <div className="h-16 overflow-hidden mb-10">
             <ScrollVelocity

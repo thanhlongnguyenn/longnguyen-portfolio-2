@@ -65,6 +65,9 @@ const HMUContent = () => {
         structured PDFs—simplifying document management with precision and
         speed.
       </p>
+      <p className="text-sm font-bold md:text-xl lg-2xl font-sans max-w-3xl mx-auto text-orange">
+        The project is under development. Expected completion date: June 2025
+      </p>
     </div>
   );
 };
@@ -77,7 +80,7 @@ const RAGContent = () => {
         AI to deliver more accurate, context-aware responses.
       </p>
       <p className="text-sm font-bold md:text-xl lg-2xl font-sans max-w-3xl mx-auto text-orange">
-        The project is under development.
+        The project is under development. Expected completion date: August 2025
       </p>
     </div>
   );
